@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01135E6F1ED97630008B3C61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E6E1ED97630008B3C61 /* main.m */; };
+		01135E721ED97630008B3C61 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E711ED97630008B3C61 /* AppDelegate.m */; };
+		01135E751ED97630008B3C61 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E741ED97630008B3C61 /* ViewController.m */; };
+		01135E781ED97630008B3C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01135E761ED97630008B3C61 /* Main.storyboard */; };
+		01135E7A1ED97630008B3C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01135E791ED97630008B3C61 /* Assets.xcassets */; };
+		01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01135E7B1ED97630008B3C61 /* LaunchScreen.storyboard */; };
+		01135E881ED97631008B3C61 /* CaiPiaoNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E871ED97631008B3C61 /* CaiPiaoNewsTests.m */; };
+		01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01135E841ED97631008B3C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01135E621ED97630008B3C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01135E691ED97630008B3C61;
+			remoteInfo = CaiPiaoNews;
+		};
+		01135E8F1ED97631008B3C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01135E621ED97630008B3C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01135E691ED97630008B3C61;
+			remoteInfo = CaiPiaoNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01135E6A1ED97630008B3C61 /* CaiPiaoNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaiPiaoNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01135E6E1ED97630008B3C61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01135E701ED97630008B3C61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		01135E711ED97630008B3C61 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		01135E731ED97630008B3C61 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		01135E741ED97630008B3C61 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		01135E771ED97630008B3C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01135E791ED97630008B3C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01135E7C1ED97630008B3C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01135E7E1ED97630008B3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01135E831ED97630008B3C61 /* CaiPiaoNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaiPiaoNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01135E871ED97631008B3C61 /* CaiPiaoNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaiPiaoNewsTests.m; sourceTree = "<group>"; };
+		01135E891ED97631008B3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01135E8E1ED97631008B3C61 /* CaiPiaoNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaiPiaoNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaiPiaoNewsUITests.m; sourceTree = "<group>"; };
+		01135E941ED97631008B3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01135E671ED97630008B3C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01135E801ED97630008B3C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01135E8B1ED97631008B3C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01135E611ED97630008B3C61 = {
+			isa = PBXGroup;
+			children = (
+				01135E6C1ED97630008B3C61 /* CaiPiaoNews */,
+				01135E861ED97631008B3C61 /* CaiPiaoNewsTests */,
+				01135E911ED97631008B3C61 /* CaiPiaoNewsUITests */,
+				01135E6B1ED97630008B3C61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01135E6B1ED97630008B3C61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01135E6A1ED97630008B3C61 /* CaiPiaoNews.app */,
+				01135E831ED97630008B3C61 /* CaiPiaoNewsTests.xctest */,
+				01135E8E1ED97631008B3C61 /* CaiPiaoNewsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01135E6C1ED97630008B3C61 /* CaiPiaoNews */ = {
+			isa = PBXGroup;
+			children = (
+				01135E701ED97630008B3C61 /* AppDelegate.h */,
+				01135E711ED97630008B3C61 /* AppDelegate.m */,
+				01135E731ED97630008B3C61 /* ViewController.h */,
+				01135E741ED97630008B3C61 /* ViewController.m */,
+				01135E761ED97630008B3C61 /* Main.storyboard */,
+				01135E791ED97630008B3C61 /* Assets.xcassets */,
+				01135E7B1ED97630008B3C61 /* LaunchScreen.storyboard */,
+				01135E7E1ED97630008B3C61 /* Info.plist */,
+				01135E6D1ED97630008B3C61 /* Supporting Files */,
+			);
+			path = CaiPiaoNews;
+			sourceTree = "<group>";
+		};
+		01135E6D1ED97630008B3C61 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				01135E6E1ED97630008B3C61 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01135E861ED97631008B3C61 /* CaiPiaoNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				01135E871ED97631008B3C61 /* CaiPiaoNewsTests.m */,
+				01135E891ED97631008B3C61 /* Info.plist */,
+			);
+			path = CaiPiaoNewsTests;
+			sourceTree = "<group>";
+		};
+		01135E911ED97631008B3C61 /* CaiPiaoNewsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */,
+				01135E941ED97631008B3C61 /* Info.plist */,
+			);
+			path = CaiPiaoNewsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01135E691ED97630008B3C61 /* CaiPiaoNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01135E971ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNews" */;
+			buildPhases = (
+				01135E661ED97630008B3C61 /* Sources */,
+				01135E671ED97630008B3C61 /* Frameworks */,
+				01135E681ED97630008B3C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CaiPiaoNews;
+			productName = CaiPiaoNews;
+			productReference = 01135E6A1ED97630008B3C61 /* CaiPiaoNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		01135E821ED97630008B3C61 /* CaiPiaoNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01135E9A1ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNewsTests" */;
+			buildPhases = (
+				01135E7F1ED97630008B3C61 /* Sources */,
+				01135E801ED97630008B3C61 /* Frameworks */,
+				01135E811ED97630008B3C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01135E851ED97631008B3C61 /* PBXTargetDependency */,
+			);
+			name = CaiPiaoNewsTests;
+			productName = CaiPiaoNewsTests;
+			productReference = 01135E831ED97630008B3C61 /* CaiPiaoNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		01135E8D1ED97631008B3C61 /* CaiPiaoNewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01135E9D1ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNewsUITests" */;
+			buildPhases = (
+				01135E8A1ED97631008B3C61 /* Sources */,
+				01135E8B1ED97631008B3C61 /* Frameworks */,
+				01135E8C1ED97631008B3C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01135E901ED97631008B3C61 /* PBXTargetDependency */,
+			);
+			name = CaiPiaoNewsUITests;
+			productName = CaiPiaoNewsUITests;
+			productReference = 01135E8E1ED97631008B3C61 /* CaiPiaoNewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01135E621ED97630008B3C61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = lushuai;
+				TargetAttributes = {
+					01135E691ED97630008B3C61 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					01135E821ED97630008B3C61 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01135E691ED97630008B3C61;
+					};
+					01135E8D1ED97631008B3C61 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01135E691ED97630008B3C61;
+					};
+				};
+			};
+			buildConfigurationList = 01135E651ED97630008B3C61 /* Build configuration list for PBXProject "CaiPiaoNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01135E611ED97630008B3C61;
+			productRefGroup = 01135E6B1ED97630008B3C61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01135E691ED97630008B3C61 /* CaiPiaoNews */,
+				01135E821ED97630008B3C61 /* CaiPiaoNewsTests */,
+				01135E8D1ED97631008B3C61 /* CaiPiaoNewsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01135E681ED97630008B3C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */,
+				01135E7A1ED97630008B3C61 /* Assets.xcassets in Resources */,
+				01135E781ED97630008B3C61 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01135E811ED97630008B3C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01135E8C1ED97631008B3C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01135E661ED97630008B3C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01135E751ED97630008B3C61 /* ViewController.m in Sources */,
+				01135E721ED97630008B3C61 /* AppDelegate.m in Sources */,
+				01135E6F1ED97630008B3C61 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01135E7F1ED97630008B3C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01135E881ED97631008B3C61 /* CaiPiaoNewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01135E8A1ED97631008B3C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01135E851ED97631008B3C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01135E691ED97630008B3C61 /* CaiPiaoNews */;
+			targetProxy = 01135E841ED97631008B3C61 /* PBXContainerItemProxy */;
+		};
+		01135E901ED97631008B3C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01135E691ED97630008B3C61 /* CaiPiaoNews */;
+			targetProxy = 01135E8F1ED97631008B3C61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		01135E761ED97630008B3C61 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01135E771ED97630008B3C61 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01135E7B1ED97630008B3C61 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01135E7C1ED97630008B3C61 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01135E951ED97631008B3C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		01135E961ED97631008B3C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01135E981ED97631008B3C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01135E991ED97631008B3C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		01135E9B1ED97631008B3C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CaiPiaoNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaiPiaoNews.app/CaiPiaoNews";
+			};
+			name = Debug;
+		};
+		01135E9C1ED97631008B3C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CaiPiaoNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaiPiaoNews.app/CaiPiaoNews";
+			};
+			name = Release;
+		};
+		01135E9E1ED97631008B3C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CaiPiaoNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CaiPiaoNews;
+			};
+			name = Debug;
+		};
+		01135E9F1ED97631008B3C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CaiPiaoNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CaiPiaoNews;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01135E651ED97630008B3C61 /* Build configuration list for PBXProject "CaiPiaoNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01135E951ED97631008B3C61 /* Debug */,
+				01135E961ED97631008B3C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01135E971ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01135E981ED97631008B3C61 /* Debug */,
+				01135E991ED97631008B3C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		01135E9A1ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01135E9B1ED97631008B3C61 /* Debug */,
+				01135E9C1ED97631008B3C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		01135E9D1ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01135E9E1ED97631008B3C61 /* Debug */,
+				01135E9F1ED97631008B3C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01135E621ED97630008B3C61 /* Project object */;
+}
