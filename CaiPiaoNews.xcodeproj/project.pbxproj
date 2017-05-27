@@ -15,6 +15,7 @@
 		01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01135E7B1ED97630008B3C61 /* LaunchScreen.storyboard */; };
 		01135E881ED97631008B3C61 /* CaiPiaoNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E871ED97631008B3C61 /* CaiPiaoNewsTests.m */; };
 		01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */; };
+		8C350F7A40503ED6DB400C91 /* libPods-CaiPiaoNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		01135E8E1ED97631008B3C61 /* CaiPiaoNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaiPiaoNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaiPiaoNewsUITests.m; sourceTree = "<group>"; };
 		01135E941ED97631008B3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CaiPiaoNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6F14FF046DC7106409733F /* Pods-CaiPiaoNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaiPiaoNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews.debug.xcconfig"; sourceTree = "<group>"; };
+		CA6C0F9B1475F761E23EC62E /* Pods-CaiPiaoNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaiPiaoNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C350F7A40503ED6DB400C91 /* libPods-CaiPiaoNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				01135E861ED97631008B3C61 /* CaiPiaoNewsTests */,
 				01135E911ED97631008B3C61 /* CaiPiaoNewsUITests */,
 				01135E6B1ED97630008B3C61 /* Products */,
+				3821842F3292C6D0AE2EB46C /* Pods */,
+				54CE6DE66F3743AC421C7BEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +147,23 @@
 			path = CaiPiaoNewsUITests;
 			sourceTree = "<group>";
 		};
+		3821842F3292C6D0AE2EB46C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F14FF046DC7106409733F /* Pods-CaiPiaoNews.debug.xcconfig */,
+				CA6C0F9B1475F761E23EC62E /* Pods-CaiPiaoNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54CE6DE66F3743AC421C7BEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01135E971ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNews" */;
 			buildPhases = (
+				00C227FA5C9B8969D9CCA011 /* [CP] Check Pods Manifest.lock */,
 				01135E661ED97630008B3C61 /* Sources */,
 				01135E671ED97630008B3C61 /* Frameworks */,
 				01135E681ED97630008B3C61 /* Resources */,
+				521F694C4B6A3D7522CE44BB /* [CP] Embed Pods Frameworks */,
+				005D7F4E7709A774198B94FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +294,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		005D7F4E7709A774198B94FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		00C227FA5C9B8969D9CCA011 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		521F694C4B6A3D7522CE44BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01135E661ED97630008B3C61 /* Sources */ = {
@@ -424,6 +499,7 @@
 		};
 		01135E981ED97631008B3C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6F14FF046DC7106409733F /* Pods-CaiPiaoNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
@@ -435,6 +511,7 @@
 		};
 		01135E991ED97631008B3C61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA6C0F9B1475F761E23EC62E /* Pods-CaiPiaoNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
