@@ -15,6 +15,7 @@
 		01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01135E7B1ED97630008B3C61 /* LaunchScreen.storyboard */; };
 		01135E881ED97631008B3C61 /* CaiPiaoNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E871ED97631008B3C61 /* CaiPiaoNewsTests.m */; };
 		01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */; };
+		01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135EA21ED989AE008B3C61 /* NetworkManager.m */; };
 		8C350F7A40503ED6DB400C91 /* libPods-CaiPiaoNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,8 @@
 		01135E8E1ED97631008B3C61 /* CaiPiaoNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaiPiaoNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaiPiaoNewsUITests.m; sourceTree = "<group>"; };
 		01135E941ED97631008B3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01135EA11ED989AE008B3C61 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		01135EA21ED989AE008B3C61 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CaiPiaoNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6F14FF046DC7106409733F /* Pods-CaiPiaoNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaiPiaoNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews.debug.xcconfig"; sourceTree = "<group>"; };
 		CA6C0F9B1475F761E23EC62E /* Pods-CaiPiaoNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaiPiaoNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		01135E6C1ED97630008B3C61 /* CaiPiaoNews */ = {
 			isa = PBXGroup;
 			children = (
+				01135EA01ED989A4008B3C61 /* Serverce */,
 				01135E701ED97630008B3C61 /* AppDelegate.h */,
 				01135E711ED97630008B3C61 /* AppDelegate.m */,
 				01135E731ED97630008B3C61 /* ViewController.h */,
@@ -145,6 +149,15 @@
 				01135E941ED97631008B3C61 /* Info.plist */,
 			);
 			path = CaiPiaoNewsUITests;
+			sourceTree = "<group>";
+		};
+		01135EA01ED989A4008B3C61 /* Serverce */ = {
+			isa = PBXGroup;
+			children = (
+				01135EA11ED989AE008B3C61 /* NetworkManager.h */,
+				01135EA21ED989AE008B3C61 /* NetworkManager.m */,
+			);
+			path = Serverce;
 			sourceTree = "<group>";
 		};
 		3821842F3292C6D0AE2EB46C /* Pods */ = {
@@ -348,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */,
 				01135E751ED97630008B3C61 /* ViewController.m in Sources */,
 				01135E721ED97630008B3C61 /* AppDelegate.m in Sources */,
 				01135E6F1ED97630008B3C61 /* main.m in Sources */,
@@ -503,6 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -586,6 +602,7 @@
 				01135E991ED97631008B3C61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01135E9A1ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNewsTests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +611,7 @@
 				01135E9C1ED97631008B3C61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		01135E9D1ED97631008B3C61 /* Build configuration list for PBXNativeTarget "CaiPiaoNewsUITests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +620,7 @@
 				01135E9F1ED97631008B3C61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
