@@ -7,9 +7,14 @@
 //
 
 #import "SettingViewController.h"
+#import <SDWebImage/SDImageCache.h>
+#import <Masonry.h>
+#import "UIView+toast.h"
 
 @interface SettingViewController ()
 @property (nonatomic,strong) NSArray *datas;
+@property (nonatomic, strong) UILabel *sizeLabel;
+
 @end
 
 @implementation SettingViewController
@@ -29,6 +34,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)putBufferClicked
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSUInteger size = [SDImageCache sharedImageCache].getSize;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _zlsv_sizeList.text = [NSString stringWithFormat:@"%.2fMB",(unsigned long)size / 1024.0 / 1024.0];
+        });
+        
+    });
+    //    CGFloat size = [[AppDelegate shared] folderSizeAtPath:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject] + [[AppDelegate shared] folderSizeAtPath:NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).lastObject] + [[AppDelegate shared] folderSizeAtPath:NSTemporaryDirectory()];
+    
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -41,15 +60,51 @@
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *identifier = @"ZLSCELL";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        if (indexPath.row == 0 || [indexPath row] == 2 || indexPath.row == 4) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        if (indexPath.row == 1) {
+            [cell.contentView addSubview:_sizeLabel];
+            [_sizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.mas_equalTo(cell.contentView.mas_right).offset(-30);
+                make.top.mas_equalTo(cell.contentView.mas_top).offset(5);
+                make.height.equalTo(@35);
+                make.width.equalTo(@80);
+            }];
+            [self putBufferClicked];
+        }
+    }
     
+//    cell.textLabel.text = [_dragon_list objectAtIndex:[indexPath row]];
     return cell;
+
 }
-*/
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([SDImageCache sharedImageCache].getSize == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"当前暂无缓存清理，您可以先去别处看看。" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+    }else{
+        [self.view showLoadingWithMessage:@"清理中..."];
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+            [self.view hideLodingViewWithSuccessMessage:@"清理完成"];
+            [self putBufferClicked];
+        }];
+        
+    }
+
+}
 
 /*
 // Override to support conditional editing of the table view.
