@@ -13,8 +13,7 @@
 
 @interface SettingViewController ()
 @property (nonatomic,strong) NSArray *datas;
-@property (nonatomic, strong) UILabel *sizeLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
 @end
 
 @implementation SettingViewController
@@ -22,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.datas = @[@"新闻",@"清除缓存",@"关于我们"];
+    [self putBufferClicked];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -29,6 +29,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self putBufferClicked];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,7 +43,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSUInteger size = [SDImageCache sharedImageCache].getSize;
         dispatch_async(dispatch_get_main_queue(), ^{
-            _zlsv_sizeList.text = [NSString stringWithFormat:@"%.2fMB",(unsigned long)size / 1024.0 / 1024.0];
+            _sizeLabel.text = [NSString stringWithFormat:@"%.2fMB",(unsigned long)size / 1024.0 / 1024.0];
         });
         
     });
@@ -50,17 +54,8 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *identifier = @"ZLSCELL";
@@ -90,20 +85,24 @@
     return cell;
 
 }
+*/
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([SDImageCache sharedImageCache].getSize == 0) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"当前暂无缓存清理，您可以先去别处看看。" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-        [alert show];
-    }else{
-        [self.view showLoadingWithMessage:@"清理中..."];
-        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
-            [self.view hideLodingViewWithSuccessMessage:@"清理完成"];
-            [self putBufferClicked];
-        }];
-        
-    }
+    if (indexPath.row == 1) {
+        if ([SDImageCache sharedImageCache].getSize == 0) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"当前暂无缓存清理，您可以先去别处看看。" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+            [alert show];
+        }else{
+            [self.view showLoadingWithMessage:@"清理中..."];
+            [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+                [self.view hideLodingViewWithSuccessMessage:@"清理完成"];
+                [self putBufferClicked];
+            }];
+            
+        }
 
+    }
+    
 }
 
 /*
