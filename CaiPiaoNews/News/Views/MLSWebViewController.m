@@ -9,6 +9,7 @@
 #import "MLSWebViewController.h"
 #import "NetworkManager.h"
 #import "NJKWebViewProgressView.h"
+#import <Social/Social.h>
 
 @interface MLSWebViewController ()<WKNavigationDelegate>
 @property (nonatomic ,strong) NJKWebViewProgressView *progressView;
@@ -86,9 +87,90 @@
     [webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     [webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
     
+    
+   UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStylePlain target:self action:@selector(shareNews)];
+    self.navigationItem.rightBarButtonItem = btn;
 //    self.navigationItem.backBarButtonItem.action = @selector(selector);
     
     // Do any additional setup after loading the view.
+}
+
+- (void)shareNews {
+
+
+    NSMutableArray *items = [NSMutableArray array];
+    if (_webURL) [items addObject:_webURL];
+    if (_webView.title) [items addObject:_webView.title];
+
+    /**
+     创建分享视图控制器
+     ActivityItems  在执行activity中用到的数据对象数组。数组中的对象类型是可变的，并依赖于应用程序管理的数据。例如，数据可能是由一个或者多个字符串/图像对象，代表了当前选中的内容。
+     Activities  是一个UIActivity对象的数组，代表了应用程序支持的自定义服务。这个参数可以是nil。
+     */
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+    
+    if([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0){
+        //初始化回调方法
+        UIActivityViewControllerCompletionWithItemsHandler myBlock = ^(NSString *activityType,BOOL completed,NSArray *returnedItems,NSError *activityError)
+        {
+            NSLog(@"activityType :%@", activityType);
+            if (completed)
+            {
+                NSLog(@"completed");
+            }
+            else
+            {
+                NSLog(@"cancel");
+            }
+            
+        };
+        
+        // 初始化completionHandler，当post结束之后（无论是done还是cancell）该blog都会被调用
+        activityVC.completionWithItemsHandler = myBlock;
+    }else{
+        
+        UIActivityViewControllerCompletionHandler myBlock = ^(NSString *activityType,BOOL completed)
+        {
+            NSLog(@"activityType :%@", activityType);
+            if (completed)
+            {
+                NSLog(@"completed");
+            }
+            else
+            {
+                NSLog(@"cancel");
+            }
+            
+        };
+        // 初始化completionHandler，当post结束之后（无论是done还是cancell）该blog都会被调用
+        activityVC.completionHandler = myBlock;
+    }
+    
+    //Activity 类型又分为“操作”和“分享”两大类
+    /*
+     UIKIT_EXTERN NSString *const UIActivityTypePostToFacebook     NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypePostToTwitter      NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypePostToWeibo        NS_AVAILABLE_IOS(6_0);    //SinaWeibo
+     UIKIT_EXTERN NSString *const UIActivityTypeMessage            NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypeMail               NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypePrint              NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypeCopyToPasteboard   NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypeAssignToContact    NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypeSaveToCameraRoll   NS_AVAILABLE_IOS(6_0);
+     UIKIT_EXTERN NSString *const UIActivityTypeAddToReadingList   NS_AVAILABLE_IOS(7_0);
+     UIKIT_EXTERN NSString *const UIActivityTypePostToFlickr       NS_AVAILABLE_IOS(7_0);
+     UIKIT_EXTERN NSString *const UIActivityTypePostToVimeo        NS_AVAILABLE_IOS(7_0);
+     UIKIT_EXTERN NSString *const UIActivityTypePostToTencentWeibo NS_AVAILABLE_IOS(7_0);
+     UIKIT_EXTERN NSString *const UIActivityTypeAirDrop            NS_AVAILABLE_IOS(7_0);
+     */
+    
+    // 分享功能(Facebook, Twitter, 新浪微博, 腾讯微博...)需要你在手机上设置中心绑定了登录账户, 才能正常显示。
+    //关闭系统的一些activity类型
+    activityVC.excludedActivityTypes = @[];
+    
+    //在展现view controller时，必须根据当前的设备类型，使用适当的方法。在iPad上，必须通过popover来展现view controller。在iPhone和iPodtouch上，必须以模态的方式展现。
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
 }
 
 - (void)requestNews {

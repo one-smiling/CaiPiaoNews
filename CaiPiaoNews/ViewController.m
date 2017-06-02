@@ -13,6 +13,7 @@
 #import "MLSWebViewController.h"
 #import "NewsCell.h"
 #import <MJRefresh.h>
+#import <Masonry.h>
 
 
 @interface NSString (Handle)
@@ -44,7 +45,7 @@
 @end
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) UITableView *tableView;
 @property (assign,nonatomic) NSInteger page;
 @property (nonatomic,strong) NSMutableArray *dataList;
 @end
@@ -53,18 +54,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataList = [NSMutableArray array];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 60;
     
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.dataList = [NSMutableArray array];
+    UITableView  *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [tableView registerNib:[UINib nibWithNibName:@"NewsCell" bundle:nil] forCellReuseIdentifier:@"NewsCellIdentifier"];
+    [self.view addSubview:tableView];
+    
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(tableView.superview);
+    }];
+
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.estimatedRowHeight = 60;
+        tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self refreshData];
     }];
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self moreData];
     }];
-    
-    [self requestNetwork];
+
+    self.tableView = tableView;
+
+    [self.tableView.mj_header beginRefreshing];
 
       // Do any additional setup after loading the view, typically from a nib.
 }
@@ -86,7 +99,7 @@
 - (void)requestNetwork {
 //    http://news.baidu.com/ns?word=彩票&pn=40&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0&rsv_page=1
 //
-    NSString *url = [NSString stringWithFormat:@"http://news.baidu.com/ns?word=%@&pn=%ld&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0",[@"彩票" urlEncode],(long)_page * 20];
+    NSString *url = [NSString stringWithFormat:@"http://news.baidu.com/ns?word=%@&pn=%ld&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0",[_keyWord urlEncode],(long)_page * 20];
     BOOL isRefresh = self.isRefresh;
     [NetworkManager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString *html =  [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
@@ -197,11 +210,25 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MLSWebViewController  *web = [[MLSWebViewController alloc] init];
     web.webURL = [NSURL URLWithString:_dataList[indexPath.row][@"link"]];
+    web.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:web animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - XLPagerTabStripViewControllerDelegate
+
+-(NSString *)titleForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController
+{
+    return _keyWord;
+}
+
+-(UIColor *)colorForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController
+{
+    return [UIColor blueColor];
+    return self.navigationController.navigationBar.tintColor;
 }
 
 

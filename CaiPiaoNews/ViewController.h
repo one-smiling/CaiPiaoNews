@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XLPagerTabStripViewController.h"
 
-@interface ViewController : UIViewController
-
-
+@interface ViewController : UIViewController<XLPagerTabStripChildItem>
+@property (copy,nonatomic) NSString *keyWord;
 @end
 
