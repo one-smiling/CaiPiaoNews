@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - EAIntroView (2.10.0):
+    - EARestrictedScrollView (~> 1.1.0)
+  - EARestrictedScrollView (1.1.0)
   - JCore (1.1.3)
   - JPush (3.0.5):
     - JCore (~> 1.1.1)
@@ -27,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - EAIntroView
   - JPush
   - Masonry
   - MBProgressHUD
@@ -36,6 +40,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  EAIntroView: 3494b7bbd1212e3a4f7e8d16194a1b00e7b9abb2
+  EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   JCore: dff3c50e9a7522a508cd9096ca79165968e1aed3
   JPush: dd0b776998aa705a6242b947bf72e5a640387cfe
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -44,6 +50,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   XLPagerTabStrip: 0f9f94246c84e7cb60a06ca435da68ac75c8b56e
 
-PODFILE CHECKSUM: 01c7c2bf050e2d7ce5c624e04653c68eb4baffab
+PODFILE CHECKSUM: c776e2aa1a9d20ace51e4ecc2a656365a9842939
 
 COCOAPODS: 1.2.0

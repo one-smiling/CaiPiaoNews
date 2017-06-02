@@ -19,6 +19,27 @@
 		01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */; };
 		01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135EA21ED989AE008B3C61 /* NetworkManager.m */; };
 		0124471E1EE017B100369947 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0124471D1EE017B100369947 /* Social.framework */; };
+		01AB8C221EE1785700C4CB9B /* 启动页1-320x480.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C0D1EE1785700C4CB9B /* 启动页1-320x480.jpg */; };
+		01AB8C231EE1785700C4CB9B /* 启动页1-640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C0E1EE1785700C4CB9B /* 启动页1-640x960.jpg */; };
+		01AB8C241EE1785700C4CB9B /* 启动页1-640x1136.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C0F1EE1785700C4CB9B /* 启动页1-640x1136.jpg */; };
+		01AB8C251EE1785700C4CB9B /* 启动页1-750x1334.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C101EE1785700C4CB9B /* 启动页1-750x1334.jpg */; };
+		01AB8C261EE1785700C4CB9B /* 启动页1-768x1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C111EE1785700C4CB9B /* 启动页1-768x1024.jpg */; };
+		01AB8C271EE1785700C4CB9B /* 启动页1-1242x2208.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C121EE1785700C4CB9B /* 启动页1-1242x2208.jpg */; };
+		01AB8C281EE1785700C4CB9B /* 启动页1-1536x2048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C131EE1785700C4CB9B /* 启动页1-1536x2048.jpg */; };
+		01AB8C291EE1785700C4CB9B /* 启动页2-320x480.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C141EE1785700C4CB9B /* 启动页2-320x480.jpg */; };
+		01AB8C2A1EE1785700C4CB9B /* 启动页2-640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C151EE1785700C4CB9B /* 启动页2-640x960.jpg */; };
+		01AB8C2B1EE1785700C4CB9B /* 启动页2-640x1136.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C161EE1785700C4CB9B /* 启动页2-640x1136.jpg */; };
+		01AB8C2C1EE1785700C4CB9B /* 启动页2-750x1334.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C171EE1785700C4CB9B /* 启动页2-750x1334.jpg */; };
+		01AB8C2D1EE1785700C4CB9B /* 启动页2-768x1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C181EE1785700C4CB9B /* 启动页2-768x1024.jpg */; };
+		01AB8C2E1EE1785700C4CB9B /* 启动页2-1242x2208.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C191EE1785700C4CB9B /* 启动页2-1242x2208.jpg */; };
+		01AB8C2F1EE1785700C4CB9B /* 启动页2-1536x2048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C1A1EE1785700C4CB9B /* 启动页2-1536x2048.jpg */; };
+		01AB8C301EE1785700C4CB9B /* 启动页3-320x480.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C1B1EE1785700C4CB9B /* 启动页3-320x480.jpg */; };
+		01AB8C311EE1785700C4CB9B /* 启动页3-640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C1C1EE1785700C4CB9B /* 启动页3-640x960.jpg */; };
+		01AB8C321EE1785700C4CB9B /* 启动页3-640x1136.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C1D1EE1785700C4CB9B /* 启动页3-640x1136.jpg */; };
+		01AB8C331EE1785700C4CB9B /* 启动页3-750x1334.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C1E1EE1785700C4CB9B /* 启动页3-750x1334.jpg */; };
+		01AB8C341EE1785700C4CB9B /* 启动页3-768x1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C1F1EE1785700C4CB9B /* 启动页3-768x1024.jpg */; };
+		01AB8C351EE1785700C4CB9B /* 启动页3-1242x2208.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C201EE1785700C4CB9B /* 启动页3-1242x2208.jpg */; };
+		01AB8C361EE1785700C4CB9B /* 启动页3-1536x2048.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AB8C211EE1785700C4CB9B /* 启动页3-1536x2048.jpg */; };
 		01D106B61EE15F0A009DA1DC /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D106B51EE15F0A009DA1DC /* SettingViewController.m */; };
 		01D106BA1EE16766009DA1DC /* NewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D106B81EE16766009DA1DC /* NewsImageCell.m */; };
 		01D106BB1EE16766009DA1DC /* NewsImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D106B91EE16766009DA1DC /* NewsImageCell.xib */; };
@@ -71,6 +92,27 @@
 		01135EA11ED989AE008B3C61 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		01135EA21ED989AE008B3C61 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		0124471D1EE017B100369947 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		01AB8C0D1EE1785700C4CB9B /* 启动页1-320x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-320x480.jpg"; sourceTree = "<group>"; };
+		01AB8C0E1EE1785700C4CB9B /* 启动页1-640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-640x960.jpg"; sourceTree = "<group>"; };
+		01AB8C0F1EE1785700C4CB9B /* 启动页1-640x1136.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-640x1136.jpg"; sourceTree = "<group>"; };
+		01AB8C101EE1785700C4CB9B /* 启动页1-750x1334.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-750x1334.jpg"; sourceTree = "<group>"; };
+		01AB8C111EE1785700C4CB9B /* 启动页1-768x1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-768x1024.jpg"; sourceTree = "<group>"; };
+		01AB8C121EE1785700C4CB9B /* 启动页1-1242x2208.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-1242x2208.jpg"; sourceTree = "<group>"; };
+		01AB8C131EE1785700C4CB9B /* 启动页1-1536x2048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页1-1536x2048.jpg"; sourceTree = "<group>"; };
+		01AB8C141EE1785700C4CB9B /* 启动页2-320x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-320x480.jpg"; sourceTree = "<group>"; };
+		01AB8C151EE1785700C4CB9B /* 启动页2-640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-640x960.jpg"; sourceTree = "<group>"; };
+		01AB8C161EE1785700C4CB9B /* 启动页2-640x1136.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-640x1136.jpg"; sourceTree = "<group>"; };
+		01AB8C171EE1785700C4CB9B /* 启动页2-750x1334.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-750x1334.jpg"; sourceTree = "<group>"; };
+		01AB8C181EE1785700C4CB9B /* 启动页2-768x1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-768x1024.jpg"; sourceTree = "<group>"; };
+		01AB8C191EE1785700C4CB9B /* 启动页2-1242x2208.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-1242x2208.jpg"; sourceTree = "<group>"; };
+		01AB8C1A1EE1785700C4CB9B /* 启动页2-1536x2048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页2-1536x2048.jpg"; sourceTree = "<group>"; };
+		01AB8C1B1EE1785700C4CB9B /* 启动页3-320x480.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-320x480.jpg"; sourceTree = "<group>"; };
+		01AB8C1C1EE1785700C4CB9B /* 启动页3-640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-640x960.jpg"; sourceTree = "<group>"; };
+		01AB8C1D1EE1785700C4CB9B /* 启动页3-640x1136.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-640x1136.jpg"; sourceTree = "<group>"; };
+		01AB8C1E1EE1785700C4CB9B /* 启动页3-750x1334.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-750x1334.jpg"; sourceTree = "<group>"; };
+		01AB8C1F1EE1785700C4CB9B /* 启动页3-768x1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-768x1024.jpg"; sourceTree = "<group>"; };
+		01AB8C201EE1785700C4CB9B /* 启动页3-1242x2208.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-1242x2208.jpg"; sourceTree = "<group>"; };
+		01AB8C211EE1785700C4CB9B /* 启动页3-1536x2048.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-1536x2048.jpg"; sourceTree = "<group>"; };
 		01D106B41EE15F0A009DA1DC /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		01D106B51EE15F0A009DA1DC /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		01D106B71EE16766009DA1DC /* NewsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImageCell.h; sourceTree = "<group>"; };
@@ -159,6 +201,28 @@
 		01135E6C1ED97630008B3C61 /* CaiPiaoNews */ = {
 			isa = PBXGroup;
 			children = (
+				01AB8C0D1EE1785700C4CB9B /* 启动页1-320x480.jpg */,
+				01AB8C0E1EE1785700C4CB9B /* 启动页1-640x960.jpg */,
+				01AB8C0F1EE1785700C4CB9B /* 启动页1-640x1136.jpg */,
+				01AB8C101EE1785700C4CB9B /* 启动页1-750x1334.jpg */,
+				01AB8C111EE1785700C4CB9B /* 启动页1-768x1024.jpg */,
+				01AB8C121EE1785700C4CB9B /* 启动页1-1242x2208.jpg */,
+				01AB8C131EE1785700C4CB9B /* 启动页1-1536x2048.jpg */,
+				01AB8C141EE1785700C4CB9B /* 启动页2-320x480.jpg */,
+				01AB8C151EE1785700C4CB9B /* 启动页2-640x960.jpg */,
+				01AB8C161EE1785700C4CB9B /* 启动页2-640x1136.jpg */,
+				01AB8C171EE1785700C4CB9B /* 启动页2-750x1334.jpg */,
+				01AB8C181EE1785700C4CB9B /* 启动页2-768x1024.jpg */,
+				01AB8C191EE1785700C4CB9B /* 启动页2-1242x2208.jpg */,
+				01AB8C1A1EE1785700C4CB9B /* 启动页2-1536x2048.jpg */,
+				01AB8C1B1EE1785700C4CB9B /* 启动页3-320x480.jpg */,
+				01AB8C1C1EE1785700C4CB9B /* 启动页3-640x960.jpg */,
+				01AB8C1D1EE1785700C4CB9B /* 启动页3-640x1136.jpg */,
+				01AB8C1E1EE1785700C4CB9B /* 启动页3-750x1334.jpg */,
+				01AB8C1F1EE1785700C4CB9B /* 启动页3-768x1024.jpg */,
+				01AB8C201EE1785700C4CB9B /* 启动页3-1242x2208.jpg */,
+				01AB8C211EE1785700C4CB9B /* 启动页3-1536x2048.jpg */,
+				01AB8C0C1EE1784A00C4CB9B /* LaunchImage */,
 				01D106B31EE15EED009DA1DC /* Settings */,
 				010970E31EE13CA7008DB57F /* Home */,
 				A2CCF2131EDA7E2D005B1AB8 /* News */,
@@ -211,6 +275,13 @@
 				01135EA21ED989AE008B3C61 /* NetworkManager.m */,
 			);
 			path = Serverce;
+			sourceTree = "<group>";
+		};
+		01AB8C0C1EE1784A00C4CB9B /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LaunchImage;
 			sourceTree = "<group>";
 		};
 		01D106B31EE15EED009DA1DC /* Settings */ = {
@@ -377,13 +448,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01AB8C231EE1785700C4CB9B /* 启动页1-640x960.jpg in Resources */,
 				010970F41EE145DD008DB57F /* NewsCell.xib in Resources */,
+				01AB8C361EE1785700C4CB9B /* 启动页3-1536x2048.jpg in Resources */,
+				01AB8C341EE1785700C4CB9B /* 启动页3-768x1024.jpg in Resources */,
+				01AB8C2D1EE1785700C4CB9B /* 启动页2-768x1024.jpg in Resources */,
+				01AB8C2B1EE1785700C4CB9B /* 启动页2-640x1136.jpg in Resources */,
+				01AB8C261EE1785700C4CB9B /* 启动页1-768x1024.jpg in Resources */,
+				01AB8C2F1EE1785700C4CB9B /* 启动页2-1536x2048.jpg in Resources */,
+				01AB8C301EE1785700C4CB9B /* 启动页3-320x480.jpg in Resources */,
+				01AB8C271EE1785700C4CB9B /* 启动页1-1242x2208.jpg in Resources */,
 				01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */,
+				01AB8C221EE1785700C4CB9B /* 启动页1-320x480.jpg in Resources */,
 				A2CCF2101EDA5CDE005B1AB8 /* News.txt in Resources */,
+				01AB8C2E1EE1785700C4CB9B /* 启动页2-1242x2208.jpg in Resources */,
+				01AB8C241EE1785700C4CB9B /* 启动页1-640x1136.jpg in Resources */,
+				01AB8C281EE1785700C4CB9B /* 启动页1-1536x2048.jpg in Resources */,
 				01D106BB1EE16766009DA1DC /* NewsImageCell.xib in Resources */,
 				A2CCF2121EDA7A2F005B1AB8 /* NewsList.txt in Resources */,
+				01AB8C331EE1785700C4CB9B /* 启动页3-750x1334.jpg in Resources */,
+				01AB8C2A1EE1785700C4CB9B /* 启动页2-640x960.jpg in Resources */,
+				01AB8C321EE1785700C4CB9B /* 启动页3-640x1136.jpg in Resources */,
+				01AB8C251EE1785700C4CB9B /* 启动页1-750x1334.jpg in Resources */,
+				01AB8C2C1EE1785700C4CB9B /* 启动页2-750x1334.jpg in Resources */,
+				01AB8C351EE1785700C4CB9B /* 启动页3-1242x2208.jpg in Resources */,
 				01135E7A1ED97630008B3C61 /* Assets.xcassets in Resources */,
 				01135E781ED97630008B3C61 /* Main.storyboard in Resources */,
+				01AB8C291EE1785700C4CB9B /* 启动页2-320x480.jpg in Resources */,
+				01AB8C311EE1785700C4CB9B /* 启动页3-640x960.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

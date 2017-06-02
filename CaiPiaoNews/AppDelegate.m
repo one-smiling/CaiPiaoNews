@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import "SDWebImageManager.h"
+#import <EAIntroView/EAIntroView.h>
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()<EAIntroDelegate>
 
 @end
 
@@ -18,6 +20,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    
+    BOOL everLaunched = [[NSUserDefaults standardUserDefaults] boolForKey:@"kErverLaunched"];
+    if (!everLaunched) {
+        [self showIntroWithCrossDissolve];
+    }
     //在请求抓取到的百度图片时，防止被403，fobidden
     [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^SDHTTPHeadersDictionary * _Nullable(NSURL * _Nullable url, SDHTTPHeadersDictionary * _Nullable headers) {
         NSMutableDictionary *customHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
@@ -28,6 +36,43 @@
     return YES;
 }
 
+
+- (void)showIntroWithCrossDissolve {
+    
+    UIView *   rootView = self.window.rootViewController.view;
+    
+    EAIntroPage *page1 = [EAIntroPage page];
+    page1.bgImage = [self imgeForPage:0];
+    
+    EAIntroPage *page2 = [EAIntroPage page];
+    page2.bgImage = [self imgeForPage:1];
+    
+    EAIntroPage *page3 = [EAIntroPage page];
+    page3.bgImage = [self imgeForPage:2];
+    
+    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:rootView.bounds andPages:@[page1,page2,page3]];
+    intro.skipButtonAlignment = EAViewAlignmentCenter;
+    intro.skipButtonY = 80.f;
+    intro.pageControlY = 42.f;
+    
+    [intro setDelegate:self];
+    
+    [intro showInView:rootView animateDuration:0.3];
+}
+
+- (UIImage *)imgeForPage:(NSInteger)page {
+    
+    
+    
+    
+    return [UIImage imageNamed:@"启动页3-1242x2208.jpg"];
+}
+
+#pragma mark - EAIntroView delegate
+
+- (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kErverLaunched"];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
