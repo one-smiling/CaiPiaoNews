@@ -19,6 +19,9 @@
 		01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */; };
 		01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135EA21ED989AE008B3C61 /* NetworkManager.m */; };
 		0124471E1EE017B100369947 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0124471D1EE017B100369947 /* Social.framework */; };
+		01D106B61EE15F0A009DA1DC /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D106B51EE15F0A009DA1DC /* SettingViewController.m */; };
+		01D106BA1EE16766009DA1DC /* NewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D106B81EE16766009DA1DC /* NewsImageCell.m */; };
+		01D106BB1EE16766009DA1DC /* NewsImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D106B91EE16766009DA1DC /* NewsImageCell.xib */; };
 		8C350F7A40503ED6DB400C91 /* libPods-CaiPiaoNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */; };
 		A2079CF01EDAC33500CB5561 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2079CEF1EDAC33500CB5561 /* WebKit.framework */; };
 		A2079CF31EDAC39500CB5561 /* MLSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2079CF21EDAC39500CB5561 /* MLSWebViewController.m */; };
@@ -68,6 +71,11 @@
 		01135EA11ED989AE008B3C61 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		01135EA21ED989AE008B3C61 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		0124471D1EE017B100369947 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		01D106B41EE15F0A009DA1DC /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		01D106B51EE15F0A009DA1DC /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		01D106B71EE16766009DA1DC /* NewsImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImageCell.h; sourceTree = "<group>"; };
+		01D106B81EE16766009DA1DC /* NewsImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImageCell.m; sourceTree = "<group>"; };
+		01D106B91EE16766009DA1DC /* NewsImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsImageCell.xib; sourceTree = "<group>"; };
 		4483E3C43360C697ED0AA8E9 /* libPods-CaiPiaoNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CaiPiaoNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A6F14FF046DC7106409733F /* Pods-CaiPiaoNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaiPiaoNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews.debug.xcconfig"; sourceTree = "<group>"; };
 		A2079CEF1EDAC33500CB5561 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -151,6 +159,7 @@
 		01135E6C1ED97630008B3C61 /* CaiPiaoNews */ = {
 			isa = PBXGroup;
 			children = (
+				01D106B31EE15EED009DA1DC /* Settings */,
 				010970E31EE13CA7008DB57F /* Home */,
 				A2CCF2131EDA7E2D005B1AB8 /* News */,
 				01135EA01ED989A4008B3C61 /* Serverce */,
@@ -204,6 +213,15 @@
 			path = Serverce;
 			sourceTree = "<group>";
 		};
+		01D106B31EE15EED009DA1DC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				01D106B41EE15F0A009DA1DC /* SettingViewController.h */,
+				01D106B51EE15F0A009DA1DC /* SettingViewController.m */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		3821842F3292C6D0AE2EB46C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +260,9 @@
 				A2CCF21B1EDA844B005B1AB8 /* NewsCell.h */,
 				A2CCF21C1EDA844B005B1AB8 /* NewsCell.m */,
 				010970F31EE145DD008DB57F /* NewsCell.xib */,
+				01D106B71EE16766009DA1DC /* NewsImageCell.h */,
+				01D106B81EE16766009DA1DC /* NewsImageCell.m */,
+				01D106B91EE16766009DA1DC /* NewsImageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -359,6 +380,7 @@
 				010970F41EE145DD008DB57F /* NewsCell.xib in Resources */,
 				01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */,
 				A2CCF2101EDA5CDE005B1AB8 /* News.txt in Resources */,
+				01D106BB1EE16766009DA1DC /* NewsImageCell.xib in Resources */,
 				A2CCF2121EDA7A2F005B1AB8 /* NewsList.txt in Resources */,
 				01135E7A1ED97630008B3C61 /* Assets.xcassets in Resources */,
 				01135E781ED97630008B3C61 /* Main.storyboard in Resources */,
@@ -439,8 +461,10 @@
 				A2CCF21D1EDA844B005B1AB8 /* NewsCell.m in Sources */,
 				010970E61EE13CC2008DB57F /* NewsListViewController.m in Sources */,
 				01135E751ED97630008B3C61 /* ViewController.m in Sources */,
+				01D106B61EE15F0A009DA1DC /* SettingViewController.m in Sources */,
 				A2079CF31EDAC39500CB5561 /* MLSWebViewController.m in Sources */,
 				01135E721ED97630008B3C61 /* AppDelegate.m in Sources */,
+				01D106BA1EE16766009DA1DC /* NewsImageCell.m in Sources */,
 				01135E6F1ED97630008B3C61 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

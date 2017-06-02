@@ -20,6 +20,9 @@ PODS:
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - XLPagerTabStrip (3.0.0)
 
 DEPENDENCIES:
@@ -28,6 +31,7 @@ DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - MJRefresh
+  - SDWebImage (~> 4.0.0)
   - XLPagerTabStrip (~> 3.0)
 
 SPEC CHECKSUMS:
@@ -37,8 +41,9 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   XLPagerTabStrip: 0f9f94246c84e7cb60a06ca435da68ac75c8b56e
 
-PODFILE CHECKSUM: a37f5d16c88002dc327d3d808a34d7bda4013ade
+PODFILE CHECKSUM: 01c7c2bf050e2d7ce5c624e04653c68eb4baffab
 
 COCOAPODS: 1.2.0

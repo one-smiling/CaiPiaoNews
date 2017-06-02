@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    //在请求抓取到的百度图片时，防止被403，fobidden
+    [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^SDHTTPHeadersDictionary * _Nullable(NSURL * _Nullable url, SDHTTPHeadersDictionary * _Nullable headers) {
+        NSMutableDictionary *customHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
+        customHeaders[@"User-Agent"] = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
+        return customHeaders;
+    };
     // Override point for customization after application launch.
     return YES;
 }

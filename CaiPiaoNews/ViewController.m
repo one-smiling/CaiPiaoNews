@@ -12,8 +12,10 @@
 #import "NetworkManager.h"
 #import "MLSWebViewController.h"
 #import "NewsCell.h"
+#import "NewsImageCell.h"
 #import <MJRefresh.h>
 #import <Masonry.h>
+#import "UIImageView+WebCache.h"
 
 
 @interface NSString (Handle)
@@ -60,6 +62,8 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerNib:[UINib nibWithNibName:@"NewsCell" bundle:nil] forCellReuseIdentifier:@"NewsCellIdentifier"];
+    [tableView registerNib:[UINib nibWithNibName:@"NewsImageCell" bundle:nil] forCellReuseIdentifier:@"NewsImageCellIdentifier"];
+
     [self.view addSubview:tableView];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -120,24 +124,29 @@
 - (NSArray *)parseBaiduNews:(NSString *)htmlString {
     
     /*
-     <div class="result" id="1"><h3 class="c-title"><a href="http://video.sina.com.cn/p/news/o/doc/2017-05-28/084266334859.html?opsubject_id=top3"
-     data-click="{
+     <div class="result" id="1"><h3 class="c-title"><a href="http://news.163.com/17/0602/16/CLUILM79000187VE.html" data-click="{
      'f0':'77A717EA',
      'f1':'9F63F1E4',
      'f2':'4CA6DE6E',
      'f3':'54E5343F',
-     't':'1495933905'
-     }"
+     't':'1496394283'
+     }" target="_blank">《花间提壶方大厨》就是一张刮开后中奖的<em>彩票</em></a></h3>
      
-     target="_blank"
      
-     >近日,山西太原一<em>彩票</em>店店主刘师傅,帮彩民代买了一张<em>彩票</em></a></h3><div class="c-summary c-row "><p class="c-author">新浪视频&nbsp;&nbsp;29分钟前</p>近日,山西太原一<em>彩票</em>店店主刘师傅,帮彩民代买了一张<em>彩票</em> 按住此条可拖动相关视频 猜你喜欢 新闻- 热门视频 正在加载...请稍等~ 收藏 分享到: ...  <span class="c-info"><a href="/ns?word=%E5%BD%A9%E7%A5%A8+cont:3284382691&same=3&cl=1&tn=news&rn=30&fm=sd" class="c-more_link" data-click="{'fm':'sd'}" >3条相同新闻</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://cache.baidu.com/c?m=9f65cb4a8c8507ed4fece76310528c304e0997634b968b492cc3933fc23904564711b2e73a600d5884803d7a5cb21f01bbed3670340637b7edca8f5dddcd9222328a2d327018824013d513a8c05125b67ad605b7b81893e7b273d4fe8a848e1244cd275e2c97f1fd1c5d56cb7bb54971b5a98e38154861c9fa4161e82974&amp;p=8566c64ad4934eab58b88f35524c&amp;newp=85759a41d69112a05abad662590a92695912c10e3bd5c44324b9d71fd325001c1b69e3b823281603d4c6786c15e9241dbdb239256b5572&user=baidu&fm=sc&query=%B2%CA%C6%B1&qid=eb8cdfb70008b7d2&p1=1"
-     data-click="{'fm':'sc'}"
-     target="_blank"  class="c-cache">百度快照</a></span></div></div>
-     */
+     <div class="c-summary c-row c-gap-top-small">
+     
+     <div class="c-span6"><a class="c_photo" href="http://news.163.com/17/0602/16/CLUILM79000187VE.html" target="_blank"><img class="c-img c-img6" src="http://t11.baidu.com/it/u=2891597401,2504459932&amp;fm=82&amp;s=093853940C3327907519D4DF03007081&amp;w=121&amp;h=81&amp;img.GIF" alt=""></a></div>
+     
+     
+     
+     
+     <div class="c-span18 c-span-last"><p class="c-author">网易&nbsp;&nbsp;59分钟前</p>(原标题:《花间提壶方大厨》就是一张刮开后中奖的<em>彩票</em>) 随着网剧不断增多,网络视频平台的逐渐形成了一组成对的概念:“头部项目”和“尾部项目”。...  <span class="c-info"><a href="/ns?word=%E5%BD%A9%E7%A5%A8+cont:1284549230&amp;same=2&amp;cl=1&amp;tn=news&amp;rn=30&amp;fm=sd" class="c-more_link" data-click="{'fm':'sd'}">2条相同新闻</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="http://cache.baidu.com/c?m=9f65cb4a8c8507ed4fece763104a8023584380143fd3d1027fa3c215cc7958445a64e7b9273f1300ceb402007ad13659e1f23470340925d3ecdf883d87fdcd763bcd7a742613913112c468dcdc3721d65093&amp;p=87769a4787af10f00dbd9b7f095c&amp;newp=c36cd615d9c245f119be9b7c4c4d92695912c10e3cd1c44324b9d71fd325001c1b69e3b823281603d4c6786c15e9241dbdb239256b557ef6&amp;user=baidu&amp;fm=sc&amp;query=%B2%CA%C6%B1&amp;qid=c9a9b3ed000249c3&amp;p1=1" data-click="{'fm':'sc'}" target="_blank" class="c-cache">百度快照</a></span></div></div></div>     */
     
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"NewsList" ofType:@"txt"];
 //    htmlString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    
+
     
     NSRegularExpression *aNewsDiv = [NSRegularExpression regularExpressionWithPattern:@"<div class=\"result\"[^(百度快照)]*百度快照" options:0 error:nil];
     NSRegularExpression *newsRegex = [NSRegularExpression regularExpressionWithPattern:@"<h3.*?h3>" options:0 error:nil];
@@ -146,7 +155,8 @@
 
 //    <p class="c-author">新浪视频&nbsp;&nbsp;29分钟前</p>
     NSRegularExpression *authorRegex = [NSRegularExpression regularExpressionWithPattern:@"<p class=\"c-author\">[^>]*</p>" options:0 error:nil];
-    
+    //    <img class="c-img c-img6" src="http://t11.baidu.com/it/u=2891597401,2504459932&amp;fm=82&amp;s=093853940C3327907519D4DF03007081&amp;w=121&amp;h=81&amp;img.GIF" alt="">
+    NSRegularExpression *imgRegex = [NSRegularExpression regularExpressionWithPattern:@"<img[^>]*>" options:0 error:nil];
 
     NSArray *resultAry = [aNewsDiv matchesInString:htmlString options:0 range:NSMakeRange(0, htmlString.length)];
     NSMutableArray *models = [NSMutableArray array];
@@ -155,6 +165,20 @@
         NSString *news = [htmlString substringWithRange:result.range];
         news = [news stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         
+        NSString *imgURL = nil;
+
+        NSRange imageRange = [imgRegex rangeOfFirstMatchInString:news options:0 range:NSMakeRange(0, news.length)];
+        
+        if (imageRange.length != 0) {
+           NSString * imgTag = [news substringWithRange:imageRange];
+            NSRegularExpression *srcRegex= [NSRegularExpression regularExpressionWithPattern:@"src=(\"|')[^(\"|')]*(\"|')" options:0 error:nil];
+           NSRange srcRange = [srcRegex rangeOfFirstMatchInString:imgTag options:0 range:NSMakeRange(0, imgTag.length)];
+            if (srcRange.length != 0) {
+                imgURL = [[imgTag substringWithRange:NSMakeRange(srcRange.location + 5, srcRange.length - 6)] clearStrings:@[@"amp;"]];
+            }
+        }
+//        http://t10.baidu.com/it/u=2428285320,1649872821&fm=82&s=A9321A9A02884EE806BC75F60300D034&w=121&h=81&img.JPEG
+//        http://t10.baidu.com/it/u=2428285320,1649872821&amp;fm=82&amp;s=A9321A9A02884EE806BC75F60300D034&amp;w=121&amp;h=81&amp;img.JPEG
         NSString *authorTime = nil;
        NSRange authorRange = [authorRegex rangeOfFirstMatchInString:news options:0 range:NSMakeRange(0, news.length)];
         if (authorRange.length != 0) {
@@ -186,7 +210,7 @@
             newsDic[@"link"] = link;
             newsDic[@"title"] = title;
             newsDic[@"authorTime"] = authorTime;
-
+            newsDic[@"image"] = imgURL;
             [models addObject:newsDic];
         }
     }
@@ -201,6 +225,17 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    if (_dataList[indexPath.row][@"image"]) {
+        NewsImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsImageCellIdentifier" forIndexPath:indexPath];
+        cell.newsTitle.text = _dataList[indexPath.row][@"title"];
+        cell.newsAuthorTime.text = _dataList[indexPath.row][@"authorTime"];
+        [cell.newsImage sd_setImageWithURL:_dataList[indexPath.row][@"image"] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            NSLog(@"");
+        }];
+        return cell;
+    }
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCellIdentifier" forIndexPath:indexPath];
     cell.newsTitle.text = _dataList[indexPath.row][@"title"];
     cell.newsAuthorTime.text = _dataList[indexPath.row][@"authorTime"];
