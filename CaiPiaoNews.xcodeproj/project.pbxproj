@@ -48,9 +48,10 @@
 		A2986EAD1EE3AA4900ABFED9 /* 启动页3-640x960.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2986E981EE3AA4900ABFED9 /* 启动页3-640x960.jpg */; };
 		A2986EAE1EE3AA4900ABFED9 /* 启动页3-750x1334.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2986E991EE3AA4900ABFED9 /* 启动页3-750x1334.jpg */; };
 		A2986EAF1EE3AA4900ABFED9 /* 启动页3-768x1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2986E9A1EE3AA4900ABFED9 /* 启动页3-768x1024.jpg */; };
+		A2986EB51EE3C76200ABFED9 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = A2986EB21EE3C76200ABFED9 /* NJKWebViewProgress.m */; };
+		A2986EB61EE3C76300ABFED9 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2986EB41EE3C76200ABFED9 /* NJKWebViewProgressView.m */; };
 		A2CCF2101EDA5CDE005B1AB8 /* News.txt in Resources */ = {isa = PBXBuildFile; fileRef = A2CCF20F1EDA5CDE005B1AB8 /* News.txt */; };
 		A2CCF2121EDA7A2F005B1AB8 /* NewsList.txt in Resources */ = {isa = PBXBuildFile; fileRef = A2CCF2111EDA7A2F005B1AB8 /* NewsList.txt */; };
-		A2CCF2191EDA7E2D005B1AB8 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCF2171EDA7E2D005B1AB8 /* NJKWebViewProgressView.m */; };
 		A2CCF21D1EDA844B005B1AB8 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCF21C1EDA844B005B1AB8 /* NewsCell.m */; };
 /* End PBXBuildFile section */
 
@@ -129,10 +130,12 @@
 		A2986E981EE3AA4900ABFED9 /* 启动页3-640x960.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-640x960.jpg"; sourceTree = "<group>"; };
 		A2986E991EE3AA4900ABFED9 /* 启动页3-750x1334.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-750x1334.jpg"; sourceTree = "<group>"; };
 		A2986E9A1EE3AA4900ABFED9 /* 启动页3-768x1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "启动页3-768x1024.jpg"; sourceTree = "<group>"; };
+		A2986EB11EE3C76200ABFED9 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
+		A2986EB21EE3C76200ABFED9 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
+		A2986EB31EE3C76200ABFED9 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
+		A2986EB41EE3C76200ABFED9 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		A2CCF20F1EDA5CDE005B1AB8 /* News.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = News.txt; sourceTree = "<group>"; };
 		A2CCF2111EDA7A2F005B1AB8 /* NewsList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NewsList.txt; sourceTree = "<group>"; };
-		A2CCF2161EDA7E2D005B1AB8 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		A2CCF2171EDA7E2D005B1AB8 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		A2CCF21B1EDA844B005B1AB8 /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		A2CCF21C1EDA844B005B1AB8 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		CA6C0F9B1475F761E23EC62E /* Pods-CaiPiaoNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaiPiaoNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-CaiPiaoNews/Pods-CaiPiaoNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -330,13 +333,22 @@
 			path = LaunchImage;
 			sourceTree = "<group>";
 		};
+		A2986EB01EE3C76200ABFED9 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				A2986EB11EE3C76200ABFED9 /* NJKWebViewProgress.h */,
+				A2986EB21EE3C76200ABFED9 /* NJKWebViewProgress.m */,
+				A2986EB31EE3C76200ABFED9 /* NJKWebViewProgressView.h */,
+				A2986EB41EE3C76200ABFED9 /* NJKWebViewProgressView.m */,
+			);
+			path = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
 		A2CCF2131EDA7E2D005B1AB8 /* News */ = {
 			isa = PBXGroup;
 			children = (
 				010970E21EE13C96008DB57F /* ViewControllers */,
 				A2CCF21A1EDA8437005B1AB8 /* Views */,
-				A2CCF2161EDA7E2D005B1AB8 /* NJKWebViewProgressView.h */,
-				A2CCF2171EDA7E2D005B1AB8 /* NJKWebViewProgressView.m */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -344,6 +356,7 @@
 		A2CCF21A1EDA8437005B1AB8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2986EB01EE3C76200ABFED9 /* NJKWebViewProgress */,
 				A2079CF11EDAC39500CB5561 /* MLSWebViewController.h */,
 				A2079CF21EDAC39500CB5561 /* MLSWebViewController.m */,
 				A2CCF21B1EDA844B005B1AB8 /* NewsCell.h */,
@@ -566,13 +579,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2CCF2191EDA7E2D005B1AB8 /* NJKWebViewProgressView.m in Sources */,
 				01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */,
 				01AB8C391EE17C3900C4CB9B /* UIView+toast.m in Sources */,
 				A2CCF21D1EDA844B005B1AB8 /* NewsCell.m in Sources */,
 				010970E61EE13CC2008DB57F /* NewsListViewController.m in Sources */,
+				A2986EB51EE3C76200ABFED9 /* NJKWebViewProgress.m in Sources */,
 				01135E751ED97630008B3C61 /* ViewController.m in Sources */,
 				A2986E831EE3A75E00ABFED9 /* AboutViewController.m in Sources */,
+				A2986EB61EE3C76300ABFED9 /* NJKWebViewProgressView.m in Sources */,
 				01D106B61EE15F0A009DA1DC /* SettingViewController.m in Sources */,
 				A2079CF31EDAC39500CB5561 /* MLSWebViewController.m in Sources */,
 				01135E721ED97630008B3C61 /* AppDelegate.m in Sources */,

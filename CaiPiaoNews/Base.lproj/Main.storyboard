@@ -140,7 +140,9 @@
                             <outlet property="delegate" destination="lja-vL-jKq" id="sq2-d4-gIX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="设置" id="Cmv-zM-94Y"/>
+                    <navigationItem key="navigationItem" title="设置" id="Cmv-zM-94Y">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="bZF-IK-f3H"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="sizeLabel" destination="RSp-cW-fd2" id="Lgo-ja-Xex"/>
                     </connections>

@@ -15,9 +15,8 @@
  *  需要加载的URL
  */
 @property(nonatomic, strong) NSURL *webURL;
-@property(nonatomic, strong, readonly) WKWebView *webView;
+@property(nonatomic, strong, readonly) UIWebView *webView;
 
 
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler;
 
 @end
