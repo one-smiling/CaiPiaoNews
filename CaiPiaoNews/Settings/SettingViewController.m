@@ -98,10 +98,17 @@
                 [self.view hideLodingViewWithSuccessMessage:@"清理完成"];
                 [self putBufferClicked];
             }];
-            
         }
 
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    segue.destinationViewController.hidesBottomBarWhenPushed = YES;
+}
+- (IBAction)summarySwitch:(UISwitch *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"kShowSummary"];
+        
     
 }
 

@@ -11,5 +11,8 @@
 @interface NewsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *newsTitle;
 @property (weak, nonatomic) IBOutlet UILabel *newsAuthorTime;
+@property (weak, nonatomic) IBOutlet UILabel *summaryLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *authorTimeTop;
+
 
 @end

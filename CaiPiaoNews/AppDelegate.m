@@ -54,18 +54,30 @@
     intro.skipButtonAlignment = EAViewAlignmentCenter;
     intro.skipButtonY = 80.f;
     intro.pageControlY = 42.f;
-    
     [intro setDelegate:self];
-    
-    [intro showInView:rootView animateDuration:0.3];
+    [intro.skipButton setTitle:@"跳过" forState:UIControlStateNormal];
+        [intro showInView:rootView animateDuration:0.3];
 }
 
 - (UIImage *)imgeForPage:(NSInteger)page {
     
     
-    
-    
-    return [UIImage imageNamed:@"启动页3-1242x2208.jpg"];
+    NSString *suffixName = @"320x480";
+    int height = [[UIScreen mainScreen] currentMode].size.height;
+    switch (height) {
+        case 1136:
+            suffixName = @"640x1136";
+            break;
+        case 1334:
+            suffixName = @"750x1334";
+            break;
+        case 2208:
+            suffixName = @"1242x2208";
+            break;
+        default:
+            break;
+    }
+    return [UIImage imageNamed:[NSString stringWithFormat:@"启动页%ld-%@.jpg",(long)page + 1, suffixName]];
 }
 
 #pragma mark - EAIntroView delegate

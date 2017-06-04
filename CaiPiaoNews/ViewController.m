@@ -50,6 +50,7 @@
 @property (weak, nonatomic) UITableView *tableView;
 @property (assign,nonatomic) NSInteger page;
 @property (nonatomic,strong) NSMutableArray *dataList;
+@property (assign,nonatomic) BOOL showSummary;
 @end
 
 @implementation ViewController
@@ -57,6 +58,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSNumber *showSummary = [[NSUserDefaults standardUserDefaults] objectForKey:@"kShowSummary"];
+    _showSummary = showSummary ? showSummary.boolValue : YES;
     self.dataList = [NSMutableArray array];
     UITableView  *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.delegate = self;
@@ -82,8 +85,20 @@
     self.tableView = tableView;
 
     [self.tableView.mj_header beginRefreshing];
+    
+    
 
       // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+   NSNumber *showSummary = [[NSUserDefaults standardUserDefaults] objectForKey:@"kShowSummary"];
+    if (showSummary && showSummary.boolValue != _showSummary) {
+        _showSummary = showSummary.boolValue;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)refreshData {
@@ -118,7 +133,6 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         isRefresh ? [_tableView.mj_header endRefreshing] : [_tableView.mj_footer endRefreshing];
     }];
-
 }
 
 - (NSArray *)parseBaiduNews:(NSString *)htmlString {
@@ -157,6 +171,7 @@
     NSRegularExpression *authorRegex = [NSRegularExpression regularExpressionWithPattern:@"<p class=\"c-author\">[^>]*</p>" options:0 error:nil];
     //    <img class="c-img c-img6" src="http://t11.baidu.com/it/u=2891597401,2504459932&amp;fm=82&amp;s=093853940C3327907519D4DF03007081&amp;w=121&amp;h=81&amp;img.GIF" alt="">
     NSRegularExpression *imgRegex = [NSRegularExpression regularExpressionWithPattern:@"<img[^>]*>" options:0 error:nil];
+    NSRegularExpression *summaryRegex = [NSRegularExpression regularExpressionWithPattern:@".*<span" options:0 error:nil];
 
     NSArray *resultAry = [aNewsDiv matchesInString:htmlString options:0 range:NSMakeRange(0, htmlString.length)];
     NSMutableArray *models = [NSMutableArray array];
@@ -180,8 +195,16 @@
 //        http://t10.baidu.com/it/u=2428285320,1649872821&fm=82&s=A9321A9A02884EE806BC75F60300D034&w=121&h=81&img.JPEG
 //        http://t10.baidu.com/it/u=2428285320,1649872821&amp;fm=82&amp;s=A9321A9A02884EE806BC75F60300D034&amp;w=121&amp;h=81&amp;img.JPEG
         NSString *authorTime = nil;
+        NSString *summary = nil;
        NSRange authorRange = [authorRegex rangeOfFirstMatchInString:news options:0 range:NSMakeRange(0, news.length)];
         if (authorRange.length != 0) {
+            
+          NSRange summaryRange =  [summaryRegex rangeOfFirstMatchInString:news options:0 range:NSMakeRange(authorRange.location + authorRange.length, news.length - authorRange.location - authorRange.length)];
+            
+            if (summaryRange.length != 0) {
+                summary = [[news substringWithRange:NSMakeRange(summaryRange.location, summaryRange.length - 5)] clearStrings:@[@"</em>",@"<em>"]];
+                
+            }
             authorTime = [news substringWithRange:authorRange];
             authorTime = [authorTime clearStrings:@[@"<p class=\"c-author\">",@"</p>"]];
            authorTime = [authorTime stringByReplacingOccurrencesOfString:@"&nbsp;&nbsp;" withString:@"  "];
@@ -211,6 +234,7 @@
             newsDic[@"title"] = title;
             newsDic[@"authorTime"] = authorTime;
             newsDic[@"image"] = imgURL;
+            newsDic[@"summary"] = summary;
             [models addObject:newsDic];
         }
     }
@@ -226,19 +250,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+
     if (_dataList[indexPath.row][@"image"]) {
         NewsImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsImageCellIdentifier" forIndexPath:indexPath];
         cell.newsTitle.text = _dataList[indexPath.row][@"title"];
         cell.newsAuthorTime.text = _dataList[indexPath.row][@"authorTime"];
+        if (_showSummary && _dataList[indexPath.row][@"summary"]) {
+            cell.authorTimeTop.constant = 12;
+            cell.summaryLabel.text = _dataList[indexPath.row][@"summary"];
+
+        } else {
+            cell.summaryLabel.text = nil;
+
+            cell.authorTimeTop.constant = 0;
+        }
         [cell.newsImage sd_setImageWithURL:_dataList[indexPath.row][@"image"] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             NSLog(@"");
         }];
         return cell;
     }
+    
+    
+    
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCellIdentifier" forIndexPath:indexPath];
+    if (_showSummary && _dataList[indexPath.row][@"summary"]) {
+        cell.authorTimeTop.constant = 12;
+        cell.summaryLabel.text = _dataList[indexPath.row][@"summary"];
+
+    } else {
+        cell.authorTimeTop.constant = 0;
+        cell.summaryLabel.text = nil;
+
+    }
     cell.newsTitle.text = _dataList[indexPath.row][@"title"];
     cell.newsAuthorTime.text = _dataList[indexPath.row][@"authorTime"];
+
     return cell;
 }
 

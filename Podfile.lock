@@ -17,8 +17,8 @@ PODS:
   - EAIntroView (2.10.0):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
-  - JCore (1.1.3)
-  - JPush (3.0.5):
+  - JCore (1.1.1)
+  - JPush (3.0.2):
     - JCore (~> 1.1.1)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
@@ -42,8 +42,8 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   EAIntroView: 3494b7bbd1212e3a4f7e8d16194a1b00e7b9abb2
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
-  JCore: dff3c50e9a7522a508cd9096ca79165968e1aed3
-  JPush: dd0b776998aa705a6242b947bf72e5a640387cfe
+  JCore: 2210a789c8efb7dc2a46b1c24d2209b995b18ad2
+  JPush: 01a693fafe51b93eafc2e368bbc7a7cc07e12ce4
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
