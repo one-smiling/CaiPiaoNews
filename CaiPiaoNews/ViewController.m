@@ -264,9 +264,7 @@
 
             cell.authorTimeTop.constant = 0;
         }
-        [cell.newsImage sd_setImageWithURL:_dataList[indexPath.row][@"image"] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            NSLog(@"");
-        }];
+        [cell.newsImage sd_setImageWithURL:_dataList[indexPath.row][@"image"] placeholderImage:nil];
         return cell;
     }
     
