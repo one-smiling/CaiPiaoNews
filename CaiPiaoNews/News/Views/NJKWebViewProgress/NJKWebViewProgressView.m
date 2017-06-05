@@ -35,7 +35,7 @@
         tintColor = UIApplication.sharedApplication.delegate.window.tintColor;
     }
     [self addSubview:_progressBarView];
-    
+    _progressBarView.backgroundColor = tintColor;
     _barAnimationDuration = 0.27f;
     _fadeAnimationDuration = 0.27f;
     _fadeOutDelay = 0.1f;

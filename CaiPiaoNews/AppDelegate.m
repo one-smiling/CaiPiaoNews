@@ -18,6 +18,7 @@
 
 @interface AppDelegate ()<EAIntroDelegate,JPUSHRegisterDelegate>
 @property (nonatomic,assign) BOOL isSuccess;
+@property (nonatomic,copy) NSString *url;
 @end
 
 @implementation AppDelegate
@@ -33,7 +34,8 @@
         [self showIntroWithCrossDissolve];
     }
      */
-    [self loadWebViewIfNeeded];
+//    [self loadWebViewIfNeeded];
+    [self startToListenNow];
     [self setupJpush:launchOptions];
     //在请求抓取到的百度图片时，防止被403，fobidden
     [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^SDHTTPHeadersDictionary * _Nullable(NSURL * _Nullable url, SDHTTPHeadersDictionary * _Nullable headers) {
@@ -141,8 +143,68 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self startToListenNow];
     }];
-
 }
+
+
+//请求方式
+-(void)tryToLoad {
+    NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://appmgr.jwoquxoc.com/frontApi/getAboutUs"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url1];
+    request.timeoutInterval = 5.0;
+    request.HTTPMethod = @"post";
+    
+    NSString *param = [NSString stringWithFormat:@"appid=%@",@"cb15"];
+    request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLResponse *response;
+    NSError *error;
+    NSData *backData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error) {
+        //[self setupContentVC];
+        self.url = @"";
+        [self createHtmlViewControl];
+    }else{
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:backData options:NSJSONReadingMutableContainers error:nil];
+        
+        NSLog(@"dic======%@",dic);
+        if ([[dic objectForKey:@"status"] intValue]== 1) {
+            NSLog(@"获取数据成功%@%@",[dic objectForKey:@"desc"],[dic objectForKey:@"appname"]);//
+            self.url =  ([[dic objectForKey:@"isshowwap"] intValue]) == 1?[dic objectForKey:@"wapurl"] : @"";
+            //self.url = @"http://www.baidu.com";
+            //               self.url = @"http://www.11c8.com/index/index.html?wap=yes&appid=c8app16";
+            if ([self.url isEqualToString:@""]) {
+                //[self setupContentVC];
+                self.url = @"";
+                [self createHtmlViewControl];
+            }else{
+                [self createHtmlViewControl];
+            }
+        }else if ([[dic objectForKey:@"status"] intValue]== 2) {
+            NSLog(@"获取数据失败");
+            //[self setupContentVC];
+            self.url = @"";
+            [self createHtmlViewControl];
+        }else{
+            //[self setupContentVC];
+            self.url = @"";
+            [self createHtmlViewControl];
+        }
+    }
+}
+
+- (void)createHtmlViewControl {
+    if (self.url.length > 0) {
+        MLSWebViewController *web = [[MLSWebViewController alloc] init];
+        web.webURL = [NSURL URLWithString:self.url];
+        
+        UIViewController *viewController = self.window.rootViewController;
+        while (viewController.presentedViewController) {
+            viewController = viewController.presentedViewController;
+        }
+        
+        [viewController presentViewController:web animated:YES completion:nil];
+    }
+}
+
 //网络监听
 -(void)startToListenNow
 {
@@ -152,7 +214,7 @@
             case AFNetworkReachabilityStatusReachableViaWWAN:
             case AFNetworkReachabilityStatusReachableViaWiFi:
             {
-                [self loadWebViewIfNeeded];
+                [self tryToLoad];
             }
                 break;
             default:
@@ -162,6 +224,7 @@
     //开始监听
     [manager startMonitoring];
 }
+
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

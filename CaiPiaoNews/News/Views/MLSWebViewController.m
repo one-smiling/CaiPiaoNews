@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self clearWebViewCache];
@@ -63,15 +64,24 @@
     webView.delegate = _progressProxy;
     _progressProxy.webViewProxyDelegate = self;
     _progressProxy.progressDelegate = self;
-    
-    
+    CGRect barFrame;
     CGFloat progressBarHeight = 2.f;
-    CGRect navigationBarBounds = self.navigationController.navigationBar.bounds;
-    CGRect barFrame = CGRectMake(0, navigationBarBounds.size.height - progressBarHeight, navigationBarBounds.size.width, progressBarHeight);
+
+    
+    if (self.navigationController.navigationBar) {
+        CGRect navigationBarBounds = self.navigationController.navigationBar.bounds;
+        barFrame = CGRectMake(0, navigationBarBounds.size.height - progressBarHeight, navigationBarBounds.size.width, progressBarHeight);
+    } else {
+        barFrame = CGRectMake(0, 18, [UIScreen mainScreen].bounds.size.width, progressBarHeight);
+        
+    }
     _progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-    _progressView.progressBarView.backgroundColor = self.navigationController.navigationBar.tintColor;;
     _progressView.progress = 0.2;
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    
+    if (!self.navigationController.navigationBar) {
+        [self.view addSubview:_progressView];
+    }
 
     if (_webURL) {
         [webView loadRequest:[NSURLRequest requestWithURL:_webURL]];
@@ -82,7 +92,6 @@
     
     // Do any additional setup after loading the view.
 }
-
 
 
 - (void)shareNews {
@@ -184,6 +193,9 @@
 }
 
 - (void)clearWebViewCache{
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
     NSString *libraryDir = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,
                                                                NSUserDomainMask, YES)[0];
     NSString *bundleId  =  [[[NSBundle mainBundle] infoDictionary]
