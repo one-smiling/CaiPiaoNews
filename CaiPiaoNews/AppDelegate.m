@@ -27,10 +27,12 @@
     
     
     
+    /*
     BOOL everLaunched = [[NSUserDefaults standardUserDefaults] boolForKey:@"kErverLaunched"];
     if (!everLaunched) {
         [self showIntroWithCrossDissolve];
     }
+     */
     [self loadWebViewIfNeeded];
     [self setupJpush:launchOptions];
     //在请求抓取到的百度图片时，防止被403，fobidden
@@ -131,7 +133,7 @@
             [responseObject[@"isshowwap"] integerValue ]==1 &&
             responseObject[@"wapurl"]) {
             MLSWebViewController *web = [[MLSWebViewController alloc] init];
-            web.webURL = [NSURL URLWithString:responseObject[@"weburl"]];
+            web.webURL = [NSURL URLWithString:responseObject[@"wapurl"]];
             [self.window.rootViewController presentViewController:web animated:NO completion:nil];
             self.isSuccess = YES;
         }
