@@ -76,6 +76,7 @@
 		010970E41EE13CC2008DB57F /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		010970E51EE13CC2008DB57F /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		010970F31EE145DD008DB57F /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		010A3A441EE4EFC70074EF03 /* CaiPiaoNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CaiPiaoNews.entitlements; sourceTree = "<group>"; };
 		01135E6A1ED97630008B3C61 /* CaiPiaoNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaiPiaoNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01135E6E1ED97630008B3C61 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		01135E701ED97630008B3C61 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 		01135E6C1ED97630008B3C61 /* CaiPiaoNews */ = {
 			isa = PBXGroup;
 			children = (
+				010A3A441EE4EFC70074EF03 /* CaiPiaoNews.entitlements */,
 				A2986E851EE3AA4900ABFED9 /* LaunchImage */,
 				01AB8C371EE17C3900C4CB9B /* UIView+toast.h */,
 				01AB8C381EE17C3900C4CB9B /* UIView+toast.m */,
@@ -439,8 +441,13 @@
 				TargetAttributes = {
 					01135E691ED97630008B3C61 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = H26Y54627N;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = Y7MYBLK48K;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					01135E821ED97630008B3C61 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -744,15 +751,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CaiPiaoNews/CaiPiaoNews.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H26Y54627N;
+				DEVELOPMENT_TEAM = Y7MYBLK48K;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.CaiPiaoNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6d24968e-2fdc-4e69-8f0f-667f6ba3ee64";
-				PROVISIONING_PROFILE_SPECIFIER = customDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -762,15 +770,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CaiPiaoNews/CaiPiaoNews.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H26Y54627N;
+				DEVELOPMENT_TEAM = Y7MYBLK48K;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jzd.CaiPiaoNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.CaiPiaoNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6d24968e-2fdc-4e69-8f0f-667f6ba3ee64";
-				PROVISIONING_PROFILE_SPECIFIER = customDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

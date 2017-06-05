@@ -74,7 +74,6 @@
     _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 
     if (_webURL) {
-        [self requestNews];
         [webView loadRequest:[NSURLRequest requestWithURL:_webURL]];
     }
 
@@ -162,26 +161,6 @@
     //在展现view controller时，必须根据当前的设备类型，使用适当的方法。在iPad上，必须通过popover来展现view controller。在iPhone和iPodtouch上，必须以模态的方式展现。
     [self presentViewController:activityVC animated:YES completion:nil];
     
-}
-
-- (void)requestNews {
-    [NetworkManager GET:self.webURL.absoluteString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSString *html =  [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"");
-//        NSArray *list = [self parseBaiduNews:html];
-//        if (isRefresh) {
-//            [self.dataList removeAllObjects];
-//        }
-//        [self.dataList addObjectsFromArray:list];
-//        isRefresh ? [_tableView.mj_header endRefreshing] : [_tableView.mj_footer endRefreshing];
-//        [self.tableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"");
-
-//        isRefresh ? [_tableView.mj_header endRefreshing] : [_tableView.mj_footer endRefreshing];
-    }];
-
 }
 
 

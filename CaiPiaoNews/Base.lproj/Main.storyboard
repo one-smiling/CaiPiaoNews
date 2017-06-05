@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3tk-qR-xN7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3tk-qR-xN7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
         <scene sceneID="9Vz-fy-dai">
             <objects>
                 <navigationController id="8Dm-ry-6dp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="新闻" id="46n-zH-cmL"/>
+                    <tabBarItem key="tabBarItem" title="新闻" image="home_news" id="46n-zH-cmL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d60-hx-NcI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E4w-b4-YQc" id="Y1v-IT-dkN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="列表显示摘要" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2m-pu-6KN">
@@ -88,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="79" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JE8-ca-Fu6" id="cYr-vn-wBp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清理缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbF-xP-TBj">
@@ -140,9 +140,7 @@
                             <outlet property="delegate" destination="lja-vL-jKq" id="sq2-d4-gIX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="设置" id="Cmv-zM-94Y">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="bZF-IK-f3H"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="设置" id="Cmv-zM-94Y"/>
                     <connections>
                         <outlet property="sizeLabel" destination="RSp-cW-fd2" id="Lgo-ja-Xex"/>
                     </connections>
@@ -205,7 +203,7 @@
         <scene sceneID="f9c-kx-4m0">
             <objects>
                 <navigationController id="y8p-dU-7pa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" id="JrN-Fr-ZDi"/>
+                    <tabBarItem key="tabBarItem" title="设置" image="home_setting" id="JrN-Fr-ZDi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wRm-ms-OqD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -254,5 +252,7 @@
     </scenes>
     <resources>
         <image name="appicon_60pt_" width="60" height="60"/>
+        <image name="home_news" width="21" height="21"/>
+        <image name="home_setting" width="21" height="21"/>
     </resources>
 </document>

