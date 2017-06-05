@@ -16,6 +16,8 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
+NSString * const kWapURLGottenNotifiction = @"kWapURLGotten";
+
 @interface AppDelegate ()<EAIntroDelegate,JPUSHRegisterDelegate>
 @property (nonatomic,assign) BOOL isSuccess;
 @property (nonatomic,copy) NSString *url;
@@ -37,6 +39,7 @@
 //    [self loadWebViewIfNeeded];
     [self startToListenNow];
     [self setupJpush:launchOptions];
+    
     //在请求抓取到的百度图片时，防止被403，fobidden
     [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^SDHTTPHeadersDictionary * _Nullable(NSURL * _Nullable url, SDHTTPHeadersDictionary * _Nullable headers) {
         NSMutableDictionary *customHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
@@ -195,13 +198,12 @@
     if (self.url.length > 0) {
         MLSWebViewController *web = [[MLSWebViewController alloc] init];
         web.webURL = [NSURL URLWithString:self.url];
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kWapURLGottenNotifiction object:nil];
         UIViewController *viewController = self.window.rootViewController;
         while (viewController.presentedViewController) {
             viewController = viewController.presentedViewController;
         }
-        
-        [viewController presentViewController:web animated:YES completion:nil];
+        [viewController presentViewController:web animated:NO completion:nil];
     }
 }
 

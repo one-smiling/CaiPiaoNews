@@ -16,7 +16,7 @@
 #import <MJRefresh.h>
 #import <Masonry.h>
 #import "UIImageView+WebCache.h"
-
+extern NSString * const kWapURLGottenNotifiction;
 
 @interface NSString (Handle)
 
@@ -51,12 +51,18 @@
 @property (assign,nonatomic) NSInteger page;
 @property (nonatomic,strong) NSMutableArray *dataList;
 @property (assign,nonatomic) BOOL showSummary;
+@property (strong,nonatomic) NSURLSessionDataTask *task;
 @end
 
 @implementation ViewController
-
+- (void)urlGotten:(NSNotification *)noti {
+    [self.task cancel];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(urlGotten:) name:kWapURLGottenNotifiction object:nil];
+
     
     NSNumber *showSummary = [[NSUserDefaults standardUserDefaults] objectForKey:@"kShowSummary"];
     _showSummary = showSummary ? showSummary.boolValue : YES;
@@ -120,7 +126,7 @@
 //
     NSString *url = [NSString stringWithFormat:@"http://news.baidu.com/ns?word=%@&pn=%ld&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0",[_keyWord urlEncode],(long)_page * 20];
     BOOL isRefresh = self.isRefresh;
-    [NetworkManager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    self.task = [NetworkManager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString *html =  [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSArray *list = [self parseBaiduNews:html];
         if (isRefresh) {
@@ -295,6 +301,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc {
+    [[NSNotificationCenter  defaultCenter] removeObserver:self name:kWapURLGottenNotifiction object:nil];
 }
 
 #pragma mark - XLPagerTabStripViewControllerDelegate
