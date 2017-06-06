@@ -158,40 +158,47 @@ NSString * const kWapURLGottenNotifiction = @"kWapURLGotten";
     
     NSString *param = [NSString stringWithFormat:@"appid=%@",@"cb15"];
     request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
-    NSURLResponse *response;
-    NSError *error;
-    NSData *backData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    if (error) {
-        //[self setupContentVC];
-        self.url = @"";
-        [self createHtmlViewControl];
-    }else{
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:backData options:NSJSONReadingMutableContainers error:nil];
-        
-        NSLog(@"dic======%@",dic);
-        if ([[dic objectForKey:@"status"] intValue]== 1) {
-            NSLog(@"获取数据成功%@%@",[dic objectForKey:@"desc"],[dic objectForKey:@"appname"]);//
-            self.url =  ([[dic objectForKey:@"isshowwap"] intValue]) == 1?[dic objectForKey:@"wapurl"] : @"";
-            //self.url = @"http://www.baidu.com";
-            //               self.url = @"http://www.11c8.com/index/index.html?wap=yes&appid=c8app16";
-            if ([self.url isEqualToString:@""]) {
+
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSURLResponse *response;
+        NSError *error;
+        NSData *backData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
                 //[self setupContentVC];
                 self.url = @"";
                 [self createHtmlViewControl];
             }else{
-                [self createHtmlViewControl];
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:backData options:NSJSONReadingMutableContainers error:nil];
+                
+                NSLog(@"dic======%@",dic);
+                if ([[dic objectForKey:@"status"] intValue]== 1) {
+                    NSLog(@"获取数据成功%@%@",[dic objectForKey:@"desc"],[dic objectForKey:@"appname"]);//
+                    self.url =  ([[dic objectForKey:@"isshowwap"] intValue]) == 1?[dic objectForKey:@"wapurl"] : @"";
+                    //self.url = @"http://www.baidu.com";
+                    //               self.url = @"http://www.11c8.com/index/index.html?wap=yes&appid=c8app16";
+                    if ([self.url isEqualToString:@""]) {
+                        //[self setupContentVC];
+                        self.url = @"";
+                        [self createHtmlViewControl];
+                    }else{
+                        [self createHtmlViewControl];
+                    }
+                }else if ([[dic objectForKey:@"status"] intValue]== 2) {
+                    NSLog(@"获取数据失败");
+                    //[self setupContentVC];
+                    self.url = @"";
+                    [self createHtmlViewControl];
+                }else{
+                    //[self setupContentVC];
+                    self.url = @"";
+                    [self createHtmlViewControl];
+                }
             }
-        }else if ([[dic objectForKey:@"status"] intValue]== 2) {
-            NSLog(@"获取数据失败");
-            //[self setupContentVC];
-            self.url = @"";
-            [self createHtmlViewControl];
-        }else{
-            //[self setupContentVC];
-            self.url = @"";
-            [self createHtmlViewControl];
-        }
-    }
+
+        });
+
+    });
 }
 
 - (void)createHtmlViewControl {
