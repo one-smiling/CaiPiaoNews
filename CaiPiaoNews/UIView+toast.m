@@ -17,7 +17,6 @@ static const float kMargin = 15;
 
 
 @implementation UIView (toast)
-
 - (MBProgressHUD *)HUDView
 {
     MBProgressHUD *HUD = objc_getAssociatedObject(self, &HUDKey);
@@ -25,7 +24,7 @@ static const float kMargin = 15;
     {
         HUD = [[MBProgressHUD alloc] initWithView:self];
         HUD.removeFromSuperViewOnHide = YES;
-        HUD.detailsLabel.font = [UIFont systemFontOfSize:kDetailTitleFont];
+        HUD.detailsLabelFont = [UIFont systemFontOfSize:kDetailTitleFont];
         HUD.margin = kMargin;
         objc_setAssociatedObject(self, &HUDKey, HUD, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
@@ -54,11 +53,11 @@ static const float kMargin = 15;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
-    hud.detailsLabel.text = message;
-    hud.detailsLabel.font = [UIFont systemFontOfSize:15];
+    hud.detailsLabelText = message;
+    hud.detailsLabelFont = [UIFont systemFontOfSize:15];
     hud.margin = 15.f;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hideAnimated:NO afterDelay:1.5];
+    [hud hide:NO afterDelay:1.5];
 }
 
 - (void)showLoadingWithMessage:(NSString *)message
@@ -71,15 +70,15 @@ static const float kMargin = 15;
 - (void)showLoadingWithMessage:(NSString *)message delay:(NSTimeInterval)delay
 {
     [self addSubview:self.HUDView];
-    self.HUDView.label.text = message;
-    [self.HUDView showAnimated:NO];
-    [self.HUDView hideAnimated:NO afterDelay:delay];
+    self.HUDView.labelText = message;
+    [self.HUDView show:NO];
+    [self.HUDView hide:NO afterDelay:delay];
     
 }
 
 - (void)hideLodingView
 {
-    [self.HUDView hideAnimated:NO];
+    [self.HUDView hide:NO];
     objc_setAssociatedObject(self, &HUDKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -127,9 +126,9 @@ static const float kMargin = 15;
         self.HUDView.mode = MBProgressHUDModeText;
     }
     [self addSubview:self.HUDView];
-    self.HUDView.label.text = title;
-    self.HUDView.detailsLabel.text = details;
-    [self.HUDView showAnimated:NO];
+    self.HUDView.labelText = title;
+    self.HUDView.detailsLabelText = details;
+    [self.HUDView show:NO];
     
 }
 - (void)hideLodingViewWithTitle:(NSString *)title
@@ -142,10 +141,10 @@ static const float kMargin = 15;
         self.HUDView.mode = MBProgressHUDModeCustomView;
         self.HUDView.customView = [[UIImageView alloc] initWithImage:image];
     }
-    self.HUDView.detailsLabel.text = details;
-    self.HUDView.label.text = title;
+    self.HUDView.detailsLabelText = details;
+    self.HUDView.labelText = title;
     
-    [self.HUDView hideAnimated:NO afterDelay:duration];
+    [self.HUDView hide:NO afterDelay:duration];
     self.HUDView.completionBlock = ^ {
         if (completion) {
             completion();

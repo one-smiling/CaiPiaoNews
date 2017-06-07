@@ -41,7 +41,7 @@ NSString * const kWapURLGottenNotifiction = @"kWapURLGotten";
     [self setupJpush:launchOptions];
     
     //在请求抓取到的百度图片时，防止被403，fobidden
-    [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^SDHTTPHeadersDictionary * _Nullable(NSURL * _Nullable url, SDHTTPHeadersDictionary * _Nullable headers) {
+    [SDWebImageManager sharedManager].imageDownloader.headersFilter = ^NSDictionary * _Nullable(NSURL * _Nullable url, NSDictionary * _Nullable headers) {
         NSMutableDictionary *customHeaders = [NSMutableDictionary dictionaryWithDictionary:headers];
         customHeaders[@"User-Agent"] = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
         return customHeaders;

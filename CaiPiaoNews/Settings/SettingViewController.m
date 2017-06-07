@@ -88,7 +88,10 @@
 */
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.row == 1) {
+        
+    } else if (indexPath.row == 2) {
         if ([SDImageCache sharedImageCache].getSize == 0) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"当前暂无缓存清理，您可以先去别处看看。" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
             [alert show];

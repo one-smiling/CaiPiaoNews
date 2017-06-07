@@ -8,16 +8,19 @@
 
 #import "NewsListViewController.h"
 #import "ViewController.h"
+#import "EditViewController.h"
+
+extern NSString * const kCategoryChangeNotification;
 
 @interface NewsListViewController ()
-
+@property (assign,nonatomic) BOOL isReload;
 @end
 
 @implementation NewsListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCategories) name:kCategoryChangeNotification object:nil];
     self.isProgressiveIndicator = YES;
     // Do any additional setup after loading the view.
     
@@ -49,6 +52,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)reloadCategories {
+    [super reloadPagerTabStripView];
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 //    self.navigationController.navigationBar.hidden = NO;
@@ -65,7 +72,7 @@
 -(NSArray *)childViewControllersForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController
 {
     // create child view controllers that will be managed by XLPagerTabStripViewController
-    NSArray *viewControllerTitles = @[@"彩票", @"六合彩",@"时时彩",@"足球彩",@"福彩3D",@"七乐彩",@"七星彩",@"足彩"];
+    NSArray *viewControllerTitles = [EditViewController selectionCategoryList];
     NSMutableArray *viewControllers = [NSMutableArray array];
     for (NSString *title in viewControllerTitles) {
         ViewController* child = [[ViewController alloc] init];

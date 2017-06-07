@@ -19,6 +19,12 @@
 		01135E931ED97631008B3C61 /* CaiPiaoNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135E921ED97631008B3C61 /* CaiPiaoNewsUITests.m */; };
 		01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01135EA21ED989AE008B3C61 /* NetworkManager.m */; };
 		0124471E1EE017B100369947 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0124471D1EE017B100369947 /* Social.framework */; };
+		014EF0CF1EE7A390001FADE6 /* SQLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 014EF0CE1EE7A390001FADE6 /* SQLUtil.m */; };
+		014EF0D51EE7A67E001FADE6 /* PFWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 014EF0D01EE7A67E001FADE6 /* PFWebViewController.bundle */; };
+		014EF0D61EE7A67E001FADE6 /* PFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014EF0D21EE7A67E001FADE6 /* PFWebViewController.m */; };
+		014EF0D71EE7A67E001FADE6 /* PFWebViewNavigationHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 014EF0D41EE7A67E001FADE6 /* PFWebViewNavigationHeader.m */; };
+		014EF0DA1EE7CA70001FADE6 /* VRPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 014EF0D91EE7CA70001FADE6 /* VRPhotoBrowser.m */; };
+		014EF0DD1EE7D98C001FADE6 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014EF0DC1EE7D98C001FADE6 /* EditViewController.m */; };
 		01AB8C391EE17C3900C4CB9B /* UIView+toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB8C381EE17C3900C4CB9B /* UIView+toast.m */; };
 		01D106B61EE15F0A009DA1DC /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D106B51EE15F0A009DA1DC /* SettingViewController.m */; };
 		01D106BA1EE16766009DA1DC /* NewsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D106B81EE16766009DA1DC /* NewsImageCell.m */; };
@@ -96,6 +102,17 @@
 		01135EA11ED989AE008B3C61 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		01135EA21ED989AE008B3C61 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		0124471D1EE017B100369947 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		014EF0CD1EE7A390001FADE6 /* SQLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLUtil.h; sourceTree = "<group>"; };
+		014EF0CE1EE7A390001FADE6 /* SQLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLUtil.m; sourceTree = "<group>"; };
+		014EF0D01EE7A67E001FADE6 /* PFWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PFWebViewController.bundle; sourceTree = "<group>"; };
+		014EF0D11EE7A67E001FADE6 /* PFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFWebViewController.h; sourceTree = "<group>"; };
+		014EF0D21EE7A67E001FADE6 /* PFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFWebViewController.m; sourceTree = "<group>"; };
+		014EF0D31EE7A67E001FADE6 /* PFWebViewNavigationHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWebViewNavigationHeader.h; path = ../ViewControllers/PFWebViewNavigationHeader.h; sourceTree = "<group>"; };
+		014EF0D41EE7A67E001FADE6 /* PFWebViewNavigationHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWebViewNavigationHeader.m; path = ../ViewControllers/PFWebViewNavigationHeader.m; sourceTree = "<group>"; };
+		014EF0D81EE7CA70001FADE6 /* VRPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRPhotoBrowser.h; sourceTree = "<group>"; };
+		014EF0D91EE7CA70001FADE6 /* VRPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VRPhotoBrowser.m; sourceTree = "<group>"; };
+		014EF0DB1EE7D98C001FADE6 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		014EF0DC1EE7D98C001FADE6 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		01AB8C371EE17C3900C4CB9B /* UIView+toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+toast.h"; sourceTree = "<group>"; };
 		01AB8C381EE17C3900C4CB9B /* UIView+toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+toast.m"; sourceTree = "<group>"; };
 		01D106B41EE15F0A009DA1DC /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -173,6 +190,11 @@
 		010970E21EE13C96008DB57F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				014EF0D81EE7CA70001FADE6 /* VRPhotoBrowser.h */,
+				014EF0D91EE7CA70001FADE6 /* VRPhotoBrowser.m */,
+				014EF0D01EE7A67E001FADE6 /* PFWebViewController.bundle */,
+				014EF0D11EE7A67E001FADE6 /* PFWebViewController.h */,
+				014EF0D21EE7A67E001FADE6 /* PFWebViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -264,6 +286,8 @@
 		01135EA01ED989A4008B3C61 /* Serverce */ = {
 			isa = PBXGroup;
 			children = (
+				014EF0CD1EE7A390001FADE6 /* SQLUtil.h */,
+				014EF0CE1EE7A390001FADE6 /* SQLUtil.m */,
 				01135EA11ED989AE008B3C61 /* NetworkManager.h */,
 				01135EA21ED989AE008B3C61 /* NetworkManager.m */,
 			);
@@ -284,6 +308,8 @@
 				01D106B51EE15F0A009DA1DC /* SettingViewController.m */,
 				A2986E811EE3A75E00ABFED9 /* AboutViewController.h */,
 				A2986E821EE3A75E00ABFED9 /* AboutViewController.m */,
+				014EF0DB1EE7D98C001FADE6 /* EditViewController.h */,
+				014EF0DC1EE7D98C001FADE6 /* EditViewController.m */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -358,6 +384,8 @@
 		A2CCF21A1EDA8437005B1AB8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				014EF0D31EE7A67E001FADE6 /* PFWebViewNavigationHeader.h */,
+				014EF0D41EE7A67E001FADE6 /* PFWebViewNavigationHeader.m */,
 				A2986EB01EE3C76200ABFED9 /* NJKWebViewProgress */,
 				A2079CF11EDAC39500CB5561 /* MLSWebViewController.h */,
 				A2079CF21EDAC39500CB5561 /* MLSWebViewController.m */,
@@ -495,6 +523,7 @@
 				A2986E9D1EE3AA4900ABFED9 /* 启动页1-320x480.jpg in Resources */,
 				01135E7D1ED97630008B3C61 /* LaunchScreen.storyboard in Resources */,
 				A2986EA21EE3AA4900ABFED9 /* 启动页2-1242x2208.jpg in Resources */,
+				014EF0D51EE7A67E001FADE6 /* PFWebViewController.bundle in Resources */,
 				A2986EA11EE3AA4900ABFED9 /* 启动页1-768x1024.jpg in Resources */,
 				A2CCF2101EDA5CDE005B1AB8 /* News.txt in Resources */,
 				01D106BB1EE16766009DA1DC /* NewsImageCell.xib in Resources */,
@@ -588,6 +617,7 @@
 			files = (
 				01135EA31ED989AE008B3C61 /* NetworkManager.m in Sources */,
 				01AB8C391EE17C3900C4CB9B /* UIView+toast.m in Sources */,
+				014EF0CF1EE7A390001FADE6 /* SQLUtil.m in Sources */,
 				A2CCF21D1EDA844B005B1AB8 /* NewsCell.m in Sources */,
 				010970E61EE13CC2008DB57F /* NewsListViewController.m in Sources */,
 				A2986EB51EE3C76200ABFED9 /* NJKWebViewProgress.m in Sources */,
@@ -595,9 +625,13 @@
 				A2986E831EE3A75E00ABFED9 /* AboutViewController.m in Sources */,
 				A2986EB61EE3C76300ABFED9 /* NJKWebViewProgressView.m in Sources */,
 				01D106B61EE15F0A009DA1DC /* SettingViewController.m in Sources */,
+				014EF0DD1EE7D98C001FADE6 /* EditViewController.m in Sources */,
 				A2079CF31EDAC39500CB5561 /* MLSWebViewController.m in Sources */,
 				01135E721ED97630008B3C61 /* AppDelegate.m in Sources */,
+				014EF0DA1EE7CA70001FADE6 /* VRPhotoBrowser.m in Sources */,
+				014EF0D61EE7A67E001FADE6 /* PFWebViewController.m in Sources */,
 				01D106BA1EE16766009DA1DC /* NewsImageCell.m in Sources */,
+				014EF0D71EE7A67E001FADE6 /* PFWebViewNavigationHeader.m in Sources */,
 				01135E6F1ED97630008B3C61 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,7 +789,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y7MYBLK48K;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.CaiPiaoNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -775,7 +809,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y7MYBLK48K;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.CaiPiaoNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";

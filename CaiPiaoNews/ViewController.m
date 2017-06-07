@@ -16,6 +16,7 @@
 #import <MJRefresh.h>
 #import <Masonry.h>
 #import "UIImageView+WebCache.h"
+#import "PFWebViewController.h"
 extern NSString * const kWapURLGottenNotifiction;
 
 @interface NSString (Handle)
@@ -293,9 +294,13 @@ extern NSString * const kWapURLGottenNotifiction;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MLSWebViewController  *web = [[MLSWebViewController alloc] init];
-    web.webURL = [NSURL URLWithString:_dataList[indexPath.row][@"link"]];
+    
+    PFWebViewController *web = [[PFWebViewController alloc] initWithURL:[NSURL URLWithString:_dataList[indexPath.row][@"link"]]];
+
+//    MLSWebViewController  *web = [[MLSWebViewController alloc] init];
+//    web.webURL = [NSURL URLWithString:_dataList[indexPath.row][@"link"]];
     web.hidesBottomBarWhenPushed = YES;
+    web.progressBarColor = self.navigationController.navigationBar.tintColor;
     [self.navigationController pushViewController:web animated:YES];
 }
 - (void)didReceiveMemoryWarning {
