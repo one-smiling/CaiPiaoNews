@@ -9,4 +9,5 @@ pod 'SDWebImage'
 pod 'EAIntroView'
 pod 'FMDB', '~> 2.6.2'
 pod 'MWPhotoBrowser', '~> 2.1.2'
+pod 'MJExtension'
 end

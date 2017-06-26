@@ -66,13 +66,13 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.progressView];
     [self progressChanged:@(0.2)];
 
     [self setupReaderMode];
     
     [self loadWebContent];
-    
+    [self.view addSubview:self.progressView];
+
     UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareNews)];
     self.navigationItem.rightBarButtonItem = btn;
 }
@@ -168,7 +168,7 @@
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoBack" options:NSKeyValueObservingOptionNew context:nil];
     [self.webView addObserver:self forKeyPath:@"canGoForward" options:NSKeyValueObservingOptionNew context:nil];
-    [self.webView addObserver:self forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:nil];
     
     if (self.navigationController) {
         self.navigationItem.hidesBackButton = YES;
@@ -186,7 +186,7 @@
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.webView removeObserver:self forKeyPath:@"canGoBack"];
     [self.webView removeObserver:self forKeyPath:@"canGoForward"];
-    [self.webView removeObserver:self forKeyPath:@"URL"];
+    [self.webView removeObserver:self forKeyPath:@"title"];
     
     if (self.navigationController) {
 
@@ -212,9 +212,9 @@
     
     self.offset = SCREENWIDTH < SCREENHEIGHT ? 20.f : 0.f;
     
-    self.webView.frame = CGRectMake(0, 64, SCREENWIDTH, SCREENHEIGHT - 64);
+    self.webView.frame = CGRectMake(0, 0, SCREENWIDTH, SCREENHEIGHT);
     self.progressView.frame = CGRectMake(0, 63, SCREENWIDTH, 2);
-    self.webView.hidden = YES;
+//    self.webView.hidden = YES;
     self.webMaskView.frame = self.webView.frame;
     self.readerWebView.frame = self.webView.frame;
     self.maskLayer.frame = CGRectMake(0.0f, 0.0f, _readerWebView.frame.size.width, self.maskLayer.bounds.size.height);
@@ -289,7 +289,8 @@
 
     } else if ([keyPath isEqualToString:@"canGoForward"]){
     
-    } else if ([keyPath isEqualToString:@"URL"]){
+    } else if ([keyPath isEqualToString:@"title"]){
+        self.title = _webView.title;
     }
     
 }
@@ -404,16 +405,17 @@
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    
-    
-    if (webView == _webView) {
+    [self getImageUrlByJS:webView];
 
+    return;
+    if (webView == _webView) {
+        
         // Set reader mode button status when navigation finished
         [webView evaluateJavaScript:@"var ReaderArticleFinderJS = new ReaderArticleFinder(document); ReaderArticleFinderJS.isReaderModeAvailable();" completionHandler:^(id _Nullable object, NSError * _Nullable error) {
             if ([object integerValue] == 1) {
-                [self webViewSwitchReaderMode];
+//                [self webViewSwitchReaderMode];
             } else {
-                [self webViewSwitchReaderMode];
+//                [self webViewSwitchReaderMode];
             }
         }];
     }
@@ -426,13 +428,10 @@
 
 // 拦截非 Http:// 和 Https:// 开头的请求，转成应用内跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    if ([webView isEqual:self.readerWebView]) {
-        [self showBigImage:navigationAction.request];
-        decisionHandler(WKNavigationActionPolicyAllow);
-        return;
-    }
-    
-    if (![navigationAction.request.URL.absoluteString containsString:@"http://"] && ![navigationAction.request.URL.absoluteString containsString:@"https://"]) {
+    if ([self showBigImage:navigationAction.request]) {
+        decisionHandler(WKNavigationActionPolicyCancel);
+
+    } else if (![navigationAction.request.URL.absoluteString containsString:@"http://"] && ![navigationAction.request.URL.absoluteString containsString:@"https://"]) {
         
         UIApplication *application = [UIApplication sharedApplication];
 #ifndef __IPHONE_10_0
@@ -553,9 +552,9 @@
             }
         }
         [self showImageWithIndex:index];
-        return NO;
+        return YES;
     }
-    return YES;
+    return NO;
 }
 
 

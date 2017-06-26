@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,20 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HBV-Fz-Kul" id="GWT-cR-mCT">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-PG-4Rm">
-                        <rect key="frame" x="106" y="16" width="243" height="21"/>
+                        <rect key="frame" x="106" y="9" width="243" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="250" constant="21" id="dFI-g2-uKU"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJU-iu-Q5K">
-                        <rect key="frame" x="321.5" y="73" width="20.5" height="12"/>
+                        <rect key="frame" x="321.5" y="81" width="20.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -41,8 +41,8 @@
                             <constraint firstAttribute="height" constant="84" id="GfC-Ap-CPF"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunnmary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zld-EG-6X4">
-                        <rect key="frame" x="106" y="41" width="243" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sunnmary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zld-EG-6X4">
+                        <rect key="frame" x="106" y="30" width="243" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="250" constant="21" id="wZo-1T-OvE"/>
                         </constraints>
@@ -52,21 +52,20 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="iCC-PG-4Rm" firstAttribute="top" secondItem="sjN-aH-rEB" secondAttribute="top" id="3Xe-FX-1xw"/>
+                    <constraint firstItem="jJU-iu-Q5K" firstAttribute="bottom" secondItem="sjN-aH-rEB" secondAttribute="bottom" id="5My-eJ-Nhp"/>
                     <constraint firstItem="Zld-EG-6X4" firstAttribute="leading" secondItem="iCC-PG-4Rm" secondAttribute="leading" id="A4s-z1-III"/>
                     <constraint firstItem="Zld-EG-6X4" firstAttribute="trailing" secondItem="iCC-PG-4Rm" secondAttribute="trailing" id="BtK-Wt-18u"/>
+                    <constraint firstItem="sjN-aH-rEB" firstAttribute="top" secondItem="GWT-cR-mCT" secondAttribute="topMargin" constant="1" id="DUf-T0-Qgn"/>
                     <constraint firstItem="sjN-aH-rEB" firstAttribute="centerY" secondItem="GWT-cR-mCT" secondAttribute="centerY" id="HU0-Xt-djl"/>
                     <constraint firstItem="sjN-aH-rEB" firstAttribute="leading" secondItem="GWT-cR-mCT" secondAttribute="leading" constant="8" id="Kjb-pe-SGb"/>
                     <constraint firstItem="Zld-EG-6X4" firstAttribute="top" secondItem="iCC-PG-4Rm" secondAttribute="bottom" constant="4" id="d3c-rB-OtA"/>
-                    <constraint firstItem="iCC-PG-4Rm" firstAttribute="top" secondItem="GWT-cR-mCT" secondAttribute="topMargin" constant="8" id="j13-Uv-k2W"/>
-                    <constraint firstItem="jJU-iu-Q5K" firstAttribute="top" secondItem="Zld-EG-6X4" secondAttribute="bottom" constant="11" id="qeW-Lm-XdQ"/>
                     <constraint firstItem="iCC-PG-4Rm" firstAttribute="leading" secondItem="sjN-aH-rEB" secondAttribute="trailing" constant="8" id="qhr-Fm-zqX"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="jJU-iu-Q5K" secondAttribute="bottom" constant="8" id="qve-ZL-mI7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="jJU-iu-Q5K" secondAttribute="trailing" constant="25" id="w9v-ZV-gcW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="iCC-PG-4Rm" secondAttribute="trailing" constant="18" id="yQp-4r-dle"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="authorTimeTop" destination="qeW-Lm-XdQ" id="uWb-x0-fAx"/>
                 <outlet property="newsAuthorTime" destination="jJU-iu-Q5K" id="VEE-2f-Apo"/>
                 <outlet property="newsImage" destination="sjN-aH-rEB" id="2Vn-1M-kkM"/>
                 <outlet property="newsTitle" destination="iCC-PG-4Rm" id="IJf-Eq-zcC"/>

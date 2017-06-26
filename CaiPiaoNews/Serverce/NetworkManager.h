@@ -41,4 +41,8 @@ extern NSInteger cdoeForResponseObject(NSDictionary  * responseObject);
                                 success:( void (^)(NSURLSessionDataTask *task, id  responseObject))success
                                 failure:( void (^)(NSURLSessionDataTask *  task, NSError *error))failure;
 
+
++ (void)getDetailData:(NSString *)type page:(NSInteger )p Success:(void(^)(id data))success failure:(void(^)(NSError *error))failure;
+
+
 @end

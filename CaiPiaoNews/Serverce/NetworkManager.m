@@ -31,7 +31,7 @@ NSInteger cdoeForResponseObject(NSDictionary  * _Nullable responseObject) {
     dispatch_once(&onceToken, ^{
         _sharedClient = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:AFAppDotNetAPIBaseURLString]];
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        _sharedClient.responseSerializer = [AFHTTPResponseSerializer serializer];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
 //        _sharedClient.requestSerializer = [AFHTTPResponseSerializer serializer];
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html",nil];
 
@@ -115,7 +115,30 @@ NSInteger cdoeForResponseObject(NSDictionary  * _Nullable responseObject) {
 #endif
 }
 
++ (void)getDetailData:(NSString *)type page:(NSInteger )p Success:(void(^)(id data))success failure:(void(^)(NSError *error))failure {
+    
+    //http://cai88.com/api/list.action/?&type=106&ps= 20&pn=1
+    NSMutableDictionary *para = [[NSMutableDictionary alloc]init];
+    [para setValue:type forKey:@"type"];
+    [para setValue:@(p) forKey:@"ps"];
+    [para setValue:@"1" forKey:@"pn"];
+    [[self sharedClient] GET:@"http://cai88.com/api/list.action/?" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //NSLog(@"-------------%@",responseObject);
+        //NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if (responseObject)
+        {
+            success(responseObject);
+        }else
+        {
+            failure ? failure(nil) : nil;
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure ? failure(error) : nil;
+    }];
 
+    
+}
 
 //+ (id)modelWithClass:(Class)aClass andResponseObject:(id)responseObject {
 //    id model = nil;

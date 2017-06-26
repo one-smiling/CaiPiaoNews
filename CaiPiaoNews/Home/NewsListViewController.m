@@ -72,7 +72,13 @@ extern NSString * const kCategoryChangeNotification;
 -(NSArray *)childViewControllersForPagerTabStripViewController:(XLPagerTabStripViewController *)pagerTabStripViewController
 {
     // create child view controllers that will be managed by XLPagerTabStripViewController
-    NSArray *viewControllerTitles = [EditViewController selectionCategoryList];
+//    NSArray *viewControllerTitles = [EditViewController selectionCategoryList];
+    NSArray * viewControllerTitles = @[@"大乐透", @"足彩",@"篮彩",@"3D",@"排列三",@"双色球"];
+    if (self.tabBarController.selectedIndex == 2) {
+        viewControllerTitles = @[@"国际足球",@"中国足球",@"NBA",@"CBA"];
+    }
+    
+    
     NSMutableArray *viewControllers = [NSMutableArray array];
     for (NSString *title in viewControllerTitles) {
         ViewController* child = [[ViewController alloc] init];

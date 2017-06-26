@@ -24,7 +24,7 @@ NSString * const kCategoryChangeNotification = @"kCategoryChangeNotification";
     
     NSArray *list = [[NSUserDefaults standardUserDefaults] objectForKey:@"kSelectionCategoryList"];
     if (!list) {
-        list = @[@"彩票", @"六合彩",@"时时彩",@"足球彩",@"七乐彩",@"七星彩",@"足彩"];
+        list = @[@"大乐透", @"足彩",@"篮彩",@"3D",@"排列三",@"双色球"];
         [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"kSelectionCategoryList"];
     }
     return list;

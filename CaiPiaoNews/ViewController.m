@@ -62,6 +62,8 @@ extern NSString * const kWapURLGottenNotifiction;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (!_keyWord) _keyWord = @"彩市头条";
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(urlGotten:) name:kWapURLGottenNotifiction object:nil];
 
     
@@ -125,11 +127,14 @@ extern NSString * const kWapURLGottenNotifiction;
 - (void)requestNetwork {
 //    http://news.baidu.com/ns?word=彩票&pn=40&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0&rsv_page=1
 //
-    NSString *url = [NSString stringWithFormat:@"http://news.baidu.com/ns?word=%@&pn=%ld&cl=2&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0",[_keyWord urlEncode],(long)_page * 20];
+    
+    
+    //api.lottery.app887.com/api/Articles.action?keyword=&npc=0&opc=20&type=中国足球
+    NSString *url = [NSString stringWithFormat:@"http://api.lottery.app887.com/api/Articles.action?keyword=&npc=%ld&opc=20&type=%@",(long)_page,[_keyWord urlEncode]];
     BOOL isRefresh = self.isRefresh;
     self.task = [NetworkManager GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSString *html =  [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSArray *list = [self parseBaiduNews:html];
+//        NSString *html =  [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSArray *list = responseObject[@"root"][@"list"];
         if (isRefresh) {
             [self.dataList removeAllObjects];
         }
@@ -258,29 +263,29 @@ extern NSString * const kWapURLGottenNotifiction;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 
-    if (_dataList[indexPath.row][@"image"]) {
+    if (_dataList[indexPath.row][@"imglink"]) {
         NewsImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsImageCellIdentifier" forIndexPath:indexPath];
         cell.newsTitle.text = _dataList[indexPath.row][@"title"];
-        cell.newsAuthorTime.text = _dataList[indexPath.row][@"authorTime"];
-        if (_showSummary && _dataList[indexPath.row][@"summary"]) {
+        cell.newsAuthorTime.text = _dataList[indexPath.row][@"date"];
+        if (_showSummary && _dataList[indexPath.row][@"content168"]) {
             cell.authorTimeTop.constant = 12;
-            cell.summaryLabel.text = _dataList[indexPath.row][@"summary"];
+            cell.summaryLabel.text = _dataList[indexPath.row][@"content168"];
 
         } else {
             cell.summaryLabel.text = nil;
 
             cell.authorTimeTop.constant = 0;
         }
-        [cell.newsImage sd_setImageWithURL:_dataList[indexPath.row][@"image"] placeholderImage:nil];
+        [cell.newsImage sd_setImageWithURL:_dataList[indexPath.row][@"imglink"] placeholderImage:nil];
         return cell;
     }
     
     
     
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCellIdentifier" forIndexPath:indexPath];
-    if (_showSummary && _dataList[indexPath.row][@"summary"]) {
+    if (_showSummary && _dataList[indexPath.row][@"content168"]) {
         cell.authorTimeTop.constant = 12;
-        cell.summaryLabel.text = _dataList[indexPath.row][@"summary"];
+        cell.summaryLabel.text = _dataList[indexPath.row][@"content168"];
 
     } else {
         cell.authorTimeTop.constant = 0;
@@ -288,14 +293,14 @@ extern NSString * const kWapURLGottenNotifiction;
 
     }
     cell.newsTitle.text = _dataList[indexPath.row][@"title"];
-    cell.newsAuthorTime.text = _dataList[indexPath.row][@"authorTime"];
+    cell.newsAuthorTime.text = _dataList[indexPath.row][@"date"];
 
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PFWebViewController *web = [[PFWebViewController alloc] initWithURL:[NSURL URLWithString:_dataList[indexPath.row][@"link"]]];
+    PFWebViewController *web = [[PFWebViewController alloc] initWithURL:[NSURL URLWithString:_dataList[indexPath.row][@"url"]]];
 
 //    MLSWebViewController  *web = [[MLSWebViewController alloc] init];
 //    web.webURL = [NSURL URLWithString:_dataList[indexPath.row][@"link"]];
