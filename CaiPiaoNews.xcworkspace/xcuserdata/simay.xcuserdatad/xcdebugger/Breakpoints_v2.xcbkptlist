@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CaiPiaoNews/ViewController.m"
-            timestampString = "518243318.457306"
+            filePath = "CaiPiaoNews/AppDelegate.m"
+            timestampString = "548691136.682356"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-tryToLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -511,7 +511,7 @@
 				TargetAttributes = {
 					01135E691ED97630008B3C61 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = Y7MYBLK48K;
+						DevelopmentTeam = ZCFNNXML4G;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -837,11 +837,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = CaiPiaoNews/CaiPiaoNews.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y7MYBLK48K;
+				DEVELOPMENT_TEAM = ZCFNNXML4G;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.CaiPiaoNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.caipiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -857,11 +857,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = CaiPiaoNews/CaiPiaoNews.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y7MYBLK48K;
+				DEVELOPMENT_TEAM = ZCFNNXML4G;
 				INFOPLIST_FILE = CaiPiaoNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.CaiPiaoNews;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiao.caipiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

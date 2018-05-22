@@ -68,7 +68,7 @@ NSString * const kWapURLGottenNotifiction = @"kWapURLGotten";
     // init Push
     // notice: 2.1.5版本的SDK新增的注册方法，改成可上报IDFA，如果没有使用IDFA直接传nil
     // 如需继续使用pushConfig.plist文件声明appKey等配置内容，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化。
-    [JPUSHService setupWithOption:launchOptions appKey:@"7c109efdfca249ea50e56d10"
+    [JPUSHService setupWithOption:launchOptions appKey:@"e13108767edbd1324b93e0f1"
                           channel:@"iOS"
                  apsForProduction:YES
             advertisingIdentifier:nil];
@@ -151,13 +151,10 @@ NSString * const kWapURLGottenNotifiction = @"kWapURLGotten";
 
 //请求方式
 -(void)tryToLoad {
-    NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://appmgr.jwoquxoc.com/frontApi/getAboutUs"]];
+    NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.6122c.com/Lottery_server/get_init_data?appid=cs888&type=ios"]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url1];
     request.timeoutInterval = 5.0;
-    request.HTTPMethod = @"post";
-    
-    NSString *param = [NSString stringWithFormat:@"appid=%@",@"cb15"];
-    request.HTTPBody = [param dataUsingEncoding:NSUTF8StringEncoding];
+
 
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSURLResponse *response;
@@ -169,14 +166,12 @@ NSString * const kWapURLGottenNotifiction = @"kWapURLGotten";
                 self.url = @"";
                 [self createHtmlViewControl];
             }else{
-                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:backData options:NSJSONReadingMutableContainers error:nil];
-                
-                NSLog(@"dic======%@",dic);
-                if ([[dic objectForKey:@"status"] intValue]== 1) {
-                    NSLog(@"获取数据成功%@%@",[dic objectForKey:@"desc"],[dic objectForKey:@"appname"]);//
-                    self.url =  ([[dic objectForKey:@"isshowwap"] intValue]) == 1?[dic objectForKey:@"wapurl"] : @"";
-                    //self.url = @"http://www.baidu.com";
-                    //               self.url = @"http://www.11c8.com/index/index.html?wap=yes&appid=c8app16";
+                NSDictionary *data = [NSJSONSerialization JSONObjectWithData:backData options:NSJSONReadingMutableContainers error:nil];
+                NSLog(@"%@",data);
+                if ([data[@"type"] integerValue] != 200) return;
+                NSDictionary *dic = data[@"data"];
+                if ([dic[@"status"] intValue]== 1) {
+                    self.url =  [dic[@"is_jump"] intValue] == 1 ? dic[@"jump_url"] : @"";
                     if ([self.url isEqualToString:@""]) {
                         //[self setupContentVC];
                         self.url = @"";
